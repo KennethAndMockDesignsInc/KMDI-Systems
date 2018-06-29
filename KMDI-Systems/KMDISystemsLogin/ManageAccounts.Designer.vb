@@ -211,5 +211,5 @@ Partial Class ManageAccounts
     Friend WithEvents MetroGrid1 As MetroFramework.Controls.MetroGrid
     Friend WithEvents NicknameTbox As MetroFramework.Controls.MetroTextBox
     Friend WithEvents MetroComboBox1 As MetroFramework.Controls.MetroComboBox
-    Friend UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
 End Class
