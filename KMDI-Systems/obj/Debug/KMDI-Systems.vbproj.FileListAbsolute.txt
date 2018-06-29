@@ -1,0 +1,14 @@
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\KMDI-Systems.exe.config
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\KMDI-Systems.exe
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\KMDI-Systems.pdb
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\KMDI-Systems.xml
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\MetroFramework.Design.dll
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\MetroFramework.dll
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.vbprojResolveAssemblyReference.cache
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.Resources.resources
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.vbproj.GenerateResource.Cache
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.exe
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.xml
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.pdb
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.KMDISystemsLogin.resources
