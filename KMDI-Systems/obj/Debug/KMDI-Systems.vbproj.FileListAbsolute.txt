@@ -43,3 +43,4 @@ C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.Resources.resources
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.vbproj.GenerateResource.Cache
 C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.ManageUserAccess.resources
+C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.ManageUserAccess.resources

@@ -140,7 +140,7 @@ Partial Class KMDISystemsLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(393, 171)
+        Me.ClientSize = New System.Drawing.Size(393, 205)
         Me.Controls.Add(Me.ConnectionTypeCbox)
         Me.Controls.Add(Me.PasswordTbox)
         Me.Controls.Add(Me.UserNameTbox)
