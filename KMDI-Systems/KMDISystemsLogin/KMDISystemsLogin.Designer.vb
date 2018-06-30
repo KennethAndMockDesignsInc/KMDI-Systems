@@ -28,6 +28,8 @@ Partial Class KMDISystemsLogin
         Me.PasswordLbl = New MetroFramework.Controls.MetroLabel()
         Me.UserNameLbl = New MetroFramework.Controls.MetroLabel()
         Me.ConnectionTypeLbl = New MetroFramework.Controls.MetroLabel()
+        Me.LoginBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
+        Me.CloseBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         Me.SuspendLayout()
         '
         'ConnectionTypeCbox
@@ -136,11 +138,35 @@ Partial Class KMDISystemsLogin
         Me.ConnectionTypeLbl.TabIndex = 8
         Me.ConnectionTypeLbl.Text = "Connection Type:"
         '
+        'LoginBtn
+        '
+        Me.LoginBtn.Image = Nothing
+        Me.LoginBtn.Location = New System.Drawing.Point(340, 169)
+        Me.LoginBtn.Name = "LoginBtn"
+        Me.LoginBtn.Size = New System.Drawing.Size(63, 23)
+        Me.LoginBtn.TabIndex = 14
+        Me.LoginBtn.Text = "Login"
+        Me.LoginBtn.UseSelectable = True
+        Me.LoginBtn.UseVisualStyleBackColor = True
+        '
+        'CloseBtn
+        '
+        Me.CloseBtn.Image = Nothing
+        Me.CloseBtn.Location = New System.Drawing.Point(271, 169)
+        Me.CloseBtn.Name = "CloseBtn"
+        Me.CloseBtn.Size = New System.Drawing.Size(63, 23)
+        Me.CloseBtn.TabIndex = 15
+        Me.CloseBtn.Text = "Close"
+        Me.CloseBtn.UseSelectable = True
+        Me.CloseBtn.UseVisualStyleBackColor = True
+        '
         'KMDISystemsLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(393, 205)
+        Me.ClientSize = New System.Drawing.Size(419, 215)
+        Me.Controls.Add(Me.CloseBtn)
+        Me.Controls.Add(Me.LoginBtn)
         Me.Controls.Add(Me.ConnectionTypeCbox)
         Me.Controls.Add(Me.PasswordTbox)
         Me.Controls.Add(Me.UserNameTbox)
@@ -160,4 +186,6 @@ Partial Class KMDISystemsLogin
     Friend WithEvents PasswordLbl As MetroFramework.Controls.MetroLabel
     Friend WithEvents UserNameLbl As MetroFramework.Controls.MetroLabel
     Friend WithEvents ConnectionTypeLbl As MetroFramework.Controls.MetroLabel
+    Friend WithEvents LoginBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents CloseBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
 End Class
