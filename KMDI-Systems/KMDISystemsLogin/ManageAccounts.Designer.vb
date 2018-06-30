@@ -49,7 +49,7 @@ Partial Class ManageAccounts
         Me.FullnameTbox.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light
         Me.FullnameTbox.CustomButton.UseSelectable = True
         Me.FullnameTbox.CustomButton.Visible = False
-        Me.FullnameTbox.ForeColor = System.Drawing.Color.DimGray
+        Me.FullnameTbox.ForeColor = System.Drawing.Color.Black
         Me.FullnameTbox.Lines = New String(-1) {}
         Me.FullnameTbox.Location = New System.Drawing.Point(9, 47)
         Me.FullnameTbox.MaxLength = 32767
@@ -73,6 +73,7 @@ Partial Class ManageAccounts
         '
         'AddUserBtn
         '
+        Me.AddUserBtn.ForeColor = System.Drawing.Color.Black
         Me.AddUserBtn.Image = Nothing
         Me.AddUserBtn.Location = New System.Drawing.Point(737, 43)
         Me.AddUserBtn.Name = "AddUserBtn"
@@ -80,7 +81,6 @@ Partial Class ManageAccounts
         Me.AddUserBtn.Style = MetroFramework.MetroColorStyle.Teal
         Me.AddUserBtn.TabIndex = 4
         Me.AddUserBtn.Text = "&Add"
-        Me.AddUserBtn.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.AddUserBtn.UseCustomBackColor = True
         Me.AddUserBtn.UseCustomForeColor = True
         Me.AddUserBtn.UseSelectable = True
@@ -188,14 +188,16 @@ Partial Class ManageAccounts
         '
         'UpdateUserBtn
         '
+        Me.UpdateUserBtn.ForeColor = System.Drawing.Color.Black
         Me.UpdateUserBtn.Image = Nothing
         Me.UpdateUserBtn.Location = New System.Drawing.Point(798, 43)
         Me.UpdateUserBtn.Name = "UpdateUserBtn"
         Me.UpdateUserBtn.Size = New System.Drawing.Size(55, 29)
         Me.UpdateUserBtn.TabIndex = 5
         Me.UpdateUserBtn.Text = "Updat&e"
-        Me.UpdateUserBtn.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.UpdateUserBtn.UseCustomForeColor = True
         Me.UpdateUserBtn.UseSelectable = True
+        Me.UpdateUserBtn.UseStyleColors = True
         Me.UpdateUserBtn.UseVisualStyleBackColor = True
         '
         'AddUserAccessBtn

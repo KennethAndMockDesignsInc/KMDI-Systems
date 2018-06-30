@@ -15,24 +15,18 @@ Module LoginModule
     Public sqlCommand As SqlCommand
     Public sqlDataAdapter As SqlDataAdapter
     Public Read As SqlDataReader
+    Public Query As String
 
     Public Sub KMDISystems_Login(ByVal UserName As String,
                                  ByVal Password As String)
         Try
             sqlConnection.Close()
             sqlConnection.Open()
-            Dim DataSet As New DataSet
-            Dim BindingSource As New BindingSource
-            DataSet.Clear()
-            Dim Query As String = "Select *
-                                   From KMDI_ACCT_TB
-                                   Where [username] COLLATE Latin1_General_CS_AS = '" & UserName & "' AND [password] COLLATE Latin1_General_CS_AS= '" & Encrypt(Password) & "'"
-            sqlCommand = New SqlCommand(Query, sqlConnection)
-            'sqlDataAdapter.SelectCommand = sqlCommand
-            'sqlDataAdapter.Fill(DataSet, "KMDI_ACCT_TB")
-            'BindingSource.DataSource = DataSet
-            'BindingSource.DataMember = "KMDI_ACCT_TB"
 
+            Query = "Select *
+                     From KMDI_ACCT_TB
+                     Where [username] COLLATE Latin1_General_CS_AS = '" & UserName & "' AND [password] COLLATE Latin1_General_CS_AS= '" & Encrypt(Password) & "'"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
             Read = sqlCommand.ExecuteReader
             If Read.HasRows = True Then
                 ManageAccounts.Show()
