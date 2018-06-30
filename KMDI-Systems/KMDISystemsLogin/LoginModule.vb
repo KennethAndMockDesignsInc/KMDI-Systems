@@ -7,11 +7,11 @@ Imports System.Security.Cryptography
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Module LoginModule
-    Dim LocalAccess As String = "192.168.1.21,49107"
-    Dim DBName As String = "KMDIDATA"
+    Dim AccessPoint As String = "192.168.1.21,49107"
+    Dim DBName As String = "HERETOSAVE"
     Dim DBUserName As String = "kmdiadmin"
     Dim DBPassword As String = "kmdiadmin"
-    Public sqlConnection As New SqlConnection With {.ConnectionString = "Data Source='" & LocalAccess & "';Network Library=DBMSSOCN;Initial Catalog='" & DBName & "';User ID='" & DBUserName & "';Password='" & DBPassword & "';"}
+    Public sqlConnection As New SqlConnection With {.ConnectionString = "Data Source='" & AccessPoint & "';Network Library=DBMSSOCN;Initial Catalog='" & DBName & "';User ID='" & DBUserName & "';Password='" & DBPassword & "';"}
     Public sqlCommand As SqlCommand
     Public Read As SqlDataReader
 
@@ -24,19 +24,30 @@ Module LoginModule
                                  ByVal Password As String)
         Try
             sqlConnection.Close()
-            sqlConnection.Open()
+
+            Try
+                sqlConnection.Open()
+            Catch ex As Exception
+                MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Error connecting to server. Please check your connection.", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            End Try
 
             Query = "Select *
                      From KMDI_ACCT_TB
-                     Where [username] COLLATE Latin1_General_CS_AS = @UserName AND [password] COLLATE Latin1_General_CS_AS = @Password"
+                     Where [username] = @UserName AND [password] COLLATE Latin1_General_CS_AS = @Password"
             sqlCommand = New SqlCommand(Query, sqlConnection)
             sqlCommand.Parameters.AddWithValue("@UserName", UserName)
             sqlCommand.Parameters.AddWithValue("@Password", Encrypt(Password))
             Read = sqlCommand.ExecuteReader
             If Read.HasRows = True Then
                 ManageAccounts.Show()
+                KMDISystemsLogin.Close()
             Else
+<<<<<<< HEAD
                 MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Failed")
+=======
+                MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Login failed! Please Try again", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+>>>>>>> 580beb9cd419b37aeb48475389c8b59f8593cbf2
             End If
 
         Catch ex As Exception
