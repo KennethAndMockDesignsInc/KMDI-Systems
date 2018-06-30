@@ -13,8 +13,11 @@ Module LoginModule
     Dim DBPassword As String = "kmdiadmin"
     Public sqlConnection As New SqlConnection With {.ConnectionString = "Data Source='" & LocalAccess & "';Network Library=DBMSSOCN;Initial Catalog='" & DBName & "';User ID='" & DBUserName & "';Password='" & DBPassword & "';"}
     Public sqlCommand As SqlCommand
-    Public sqlDataAdapter As SqlDataAdapter
     Public Read As SqlDataReader
+
+    Public sqlDataAdapter As New SqlDataAdapter
+    Public sqlDataSet As New DataSet
+    Public sqlBindingSource As New BindingSource
     Public Query As String
 
     Public Sub KMDISystems_Login(ByVal UserName As String,
@@ -33,7 +36,7 @@ Module LoginModule
             If Read.HasRows = True Then
                 ManageAccounts.Show()
             Else
-                MessageBox.Show("Failed")
+                MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Failed")
             End If
 
         Catch ex As Exception
@@ -74,4 +77,50 @@ Module LoginModule
         Return clearText
 
     End Function
+
+    Public Sub KMDI_ACCT_TB_READ()
+        Try
+            sqlConnection.Close()
+            sqlConnection.Open()
+
+            sqlDataSet.Clear()
+            Query = "SELECT [AUTONUM],
+                            [FULLNAME],
+                            [NICKNAME],
+                            [ACCTTYPE]
+                     FROM [KMDI_ACCT_TB]"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlDataAdapter.SelectCommand = sqlCommand
+            sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_TB")
+            sqlBindingSource.DataSource = sqlDataSet
+            sqlBindingSource.DataMember = "KMDI_ACCT_TB"
+            ManageAccounts.UserAcctDGV.DataSource = sqlBindingSource
+
+            With ManageAccounts.UserAcctDGV
+                .DefaultCellStyle.BackColor = Color.White
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
+            End With
+
+            ManageAccounts.UserAcctDGV.Columns("AUTONUM").Visible = False
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+    Public Sub rowpostpaint(ByVal sender As Object, ByVal e As DataGridViewRowPostPaintEventArgs)
+        Dim grid As DataGridView = DirectCast(sender, DataGridView)
+        e.PaintHeader(DataGridViewPaintParts.Background)
+        Dim rowIdx As String = (e.RowIndex + 1).ToString()
+        Dim rowFont As New System.Drawing.Font("Microsoft Sans Serif", 8.0!,
+            System.Drawing.FontStyle.Regular,
+            System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+
+        Dim centerFormat = New StringFormat()
+        centerFormat.Alignment = StringAlignment.Far
+        centerFormat.LineAlignment = StringAlignment.Near
+
+        Dim headerBounds As Rectangle = New Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height)
+
+        e.Graphics.DrawString(rowIdx, rowFont, SystemBrushes.ControlText, headerBounds, centerFormat)
+    End Sub
 End Module
