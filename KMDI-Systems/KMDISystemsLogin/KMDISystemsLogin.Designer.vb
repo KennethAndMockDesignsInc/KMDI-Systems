@@ -36,7 +36,7 @@ Partial Class KMDISystemsLogin
         Me.ConnectionTypeCbox.FormattingEnabled = True
         Me.ConnectionTypeCbox.ItemHeight = 23
         Me.ConnectionTypeCbox.Items.AddRange(New Object() {"Local Access", "Remote Access"})
-        Me.ConnectionTypeCbox.Location = New System.Drawing.Point(174, 86)
+        Me.ConnectionTypeCbox.Location = New System.Drawing.Point(173, 40)
         Me.ConnectionTypeCbox.Name = "ConnectionTypeCbox"
         Me.ConnectionTypeCbox.Size = New System.Drawing.Size(184, 29)
         Me.ConnectionTypeCbox.TabIndex = 13
@@ -59,7 +59,7 @@ Partial Class KMDISystemsLogin
         Me.PasswordTbox.FontSize = MetroFramework.MetroTextBoxSize.Medium
         Me.PasswordTbox.FontWeight = MetroFramework.MetroTextBoxWeight.Bold
         Me.PasswordTbox.Lines = New String(-1) {}
-        Me.PasswordTbox.Location = New System.Drawing.Point(174, 172)
+        Me.PasswordTbox.Location = New System.Drawing.Point(173, 126)
         Me.PasswordTbox.MaxLength = 32767
         Me.PasswordTbox.Name = "PasswordTbox"
         Me.PasswordTbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -91,7 +91,7 @@ Partial Class KMDISystemsLogin
         Me.UserNameTbox.FontSize = MetroFramework.MetroTextBoxSize.Medium
         Me.UserNameTbox.FontWeight = MetroFramework.MetroTextBoxWeight.Bold
         Me.UserNameTbox.Lines = New String(-1) {}
-        Me.UserNameTbox.Location = New System.Drawing.Point(174, 130)
+        Me.UserNameTbox.Location = New System.Drawing.Point(173, 84)
         Me.UserNameTbox.MaxLength = 32767
         Me.UserNameTbox.Name = "UserNameTbox"
         Me.UserNameTbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -110,7 +110,7 @@ Partial Class KMDISystemsLogin
         '
         Me.PasswordLbl.AutoSize = True
         Me.PasswordLbl.FontSize = MetroFramework.MetroLabelSize.Tall
-        Me.PasswordLbl.Location = New System.Drawing.Point(26, 170)
+        Me.PasswordLbl.Location = New System.Drawing.Point(25, 124)
         Me.PasswordLbl.Name = "PasswordLbl"
         Me.PasswordLbl.Size = New System.Drawing.Size(86, 25)
         Me.PasswordLbl.TabIndex = 10
@@ -120,7 +120,7 @@ Partial Class KMDISystemsLogin
         '
         Me.UserNameLbl.AutoSize = True
         Me.UserNameLbl.FontSize = MetroFramework.MetroLabelSize.Tall
-        Me.UserNameLbl.Location = New System.Drawing.Point(26, 130)
+        Me.UserNameLbl.Location = New System.Drawing.Point(25, 84)
         Me.UserNameLbl.Name = "UserNameLbl"
         Me.UserNameLbl.Size = New System.Drawing.Size(101, 25)
         Me.UserNameLbl.TabIndex = 9
@@ -130,7 +130,7 @@ Partial Class KMDISystemsLogin
         '
         Me.ConnectionTypeLbl.AutoSize = True
         Me.ConnectionTypeLbl.FontSize = MetroFramework.MetroLabelSize.Tall
-        Me.ConnectionTypeLbl.Location = New System.Drawing.Point(26, 90)
+        Me.ConnectionTypeLbl.Location = New System.Drawing.Point(25, 44)
         Me.ConnectionTypeLbl.Name = "ConnectionTypeLbl"
         Me.ConnectionTypeLbl.Size = New System.Drawing.Size(142, 25)
         Me.ConnectionTypeLbl.TabIndex = 8
@@ -140,7 +140,7 @@ Partial Class KMDISystemsLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(393, 234)
+        Me.ClientSize = New System.Drawing.Size(393, 171)
         Me.Controls.Add(Me.ConnectionTypeCbox)
         Me.Controls.Add(Me.PasswordTbox)
         Me.Controls.Add(Me.UserNameTbox)
