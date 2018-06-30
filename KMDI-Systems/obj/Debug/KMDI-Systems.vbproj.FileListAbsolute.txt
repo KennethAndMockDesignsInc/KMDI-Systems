@@ -44,3 +44,4 @@ C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.xml
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.pdb
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI-Systems.vbprojResolveAssemblyReference.cache
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.KMDI_MainFRM.resources

@@ -91,6 +91,12 @@
       <DependentUpon>KMDISystemsLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KMDISystemsLogin\KMDI_MainFRM.Designer.vb">
+      <DependentUpon>KMDI_MainFRM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KMDISystemsLogin\KMDI_MainFRM.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KMDISystemsLogin\LoginModule.vb" />
     <Compile Include="KMDISystemsLogin\ManageAccounts.Designer.vb">
       <DependentUpon>ManageAccounts.vb</DependentUpon>
@@ -123,6 +129,9 @@
   <ItemGroup>
     <EmbeddedResource Include="KMDISystemsLogin\KMDISystemsLogin.resx">
       <DependentUpon>KMDISystemsLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KMDISystemsLogin\KMDI_MainFRM.resx">
+      <DependentUpon>KMDI_MainFRM.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KMDISystemsLogin\ManageAccounts.resx">
       <DependentUpon>ManageAccounts.vb</DependentUpon>

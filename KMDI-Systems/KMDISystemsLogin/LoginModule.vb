@@ -40,14 +40,10 @@ Module LoginModule
             sqlCommand.Parameters.AddWithValue("@Password", Encrypt(Password))
             Read = sqlCommand.ExecuteReader
             If Read.HasRows = True Then
-                ManageAccounts.Show()
+                KMDI_MainFRM.Show()
                 KMDISystemsLogin.Close()
             Else
-<<<<<<< HEAD
-                MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Failed")
-=======
                 MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Login failed! Please Try again", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
->>>>>>> 580beb9cd419b37aeb48475389c8b59f8593cbf2
             End If
 
         Catch ex As Exception
@@ -118,6 +114,7 @@ Module LoginModule
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
     Public Sub rowpostpaint(ByVal sender As Object, ByVal e As DataGridViewRowPostPaintEventArgs)
         Dim grid As DataGridView = DirectCast(sender, DataGridView)
         e.PaintHeader(DataGridViewPaintParts.Background)
