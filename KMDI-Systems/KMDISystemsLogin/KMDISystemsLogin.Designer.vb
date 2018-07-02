@@ -182,7 +182,10 @@ Partial Class KMDISystemsLogin
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.Name = "KMDISystemsLogin"
         Me.Resizable = False
+<<<<<<< HEAD
         Me.Theme = MetroFramework.MetroThemeStyle.Dark
+=======
+>>>>>>> 61f473d1da9335bba4186331f6501be04a40314e
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

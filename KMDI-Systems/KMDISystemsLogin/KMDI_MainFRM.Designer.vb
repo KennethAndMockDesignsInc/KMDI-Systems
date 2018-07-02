@@ -88,9 +88,13 @@ Partial Class KMDI_MainFRM
         Me.DbNameCbox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DbNameCbox.FormattingEnabled = True
         Me.DbNameCbox.ItemHeight = 23
+<<<<<<< HEAD
         Me.DbNameCbox.Location = New System.Drawing.Point(1141, 30)
+=======
+        Me.DbNameCbox.Location = New System.Drawing.Point(1203, 27)
+>>>>>>> 61f473d1da9335bba4186331f6501be04a40314e
         Me.DbNameCbox.Name = "DbNameCbox"
-        Me.DbNameCbox.Size = New System.Drawing.Size(198, 29)
+        Me.DbNameCbox.Size = New System.Drawing.Size(143, 29)
         Me.DbNameCbox.TabIndex = 1
         Me.DbNameCbox.UseSelectable = True
         '
