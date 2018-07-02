@@ -52,7 +52,7 @@ Module LoginModule
                 Else
                     With KMDI_MainFRM
                         .Show()
-                        .DBNameCbox.Items.Insert(0, "KMDIDATA")
+                        .DbNameCbox.Items.Insert(0, "KMDIDATA")
                         .DbNameCbox.Items.Insert(1, "HAUSERDB")
                         .DbNameCbox.SelectedIndex = 0
                     End With
@@ -130,6 +130,7 @@ Module LoginModule
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
     Public Sub rowpostpaint(ByVal sender As Object, ByVal e As DataGridViewRowPostPaintEventArgs)
         Dim grid As DataGridView = DirectCast(sender, DataGridView)
         e.PaintHeader(DataGridViewPaintParts.Background)
@@ -145,5 +146,34 @@ Module LoginModule
         Dim headerBounds As Rectangle = New Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height)
 
         e.Graphics.DrawString(rowIdx, rowFont, SystemBrushes.ControlText, headerBounds, centerFormat)
+    End Sub
+
+    Public Sub KMDI_ACCT_ACCESS_TB_READ()
+        Try
+            sqlConnection.Close()
+            sqlConnection.Open()
+
+            sqlDataSet.Clear()
+            Query = "SELECT [Autonumber]
+                           ,[UserAccess] as [User Access]
+                           ,[AccessCode] as [Access Code]
+                     FROM [KMDI_ACCT_ACCESS_TB]"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlDataAdapter.SelectCommand = sqlCommand
+            sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_ACCESS_TB")
+            sqlBindingSource.DataSource = sqlDataSet
+            sqlBindingSource.DataMember = "KMDI_ACCT_ACCESS_TB"
+            ManageUserAccess.UserAccessDGV.DataSource = sqlBindingSource
+
+            With ManageUserAccess.UserAccessDGV
+                .DefaultCellStyle.BackColor = Color.White
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
+            End With
+
+            ManageUserAccess.UserAccessDGV.Columns("Autonumber").Visible = False
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
     End Sub
 End Module

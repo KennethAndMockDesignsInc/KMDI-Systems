@@ -15,4 +15,14 @@
     Private Sub UserAcctDGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles UserAcctDGV.CellContentClick
 
     End Sub
+
+    Private Sub ManageAccounts_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Me.Dispose()
+        KMDI_MainFRM.Enabled = True
+    End Sub
+
+    Private Sub AddUserAccessBtn_Click(sender As Object, e As EventArgs) Handles AddUserAccessBtn.Click
+        ManageUserAccess.Show()
+        Me.Enabled = False
+    End Sub
 End Class

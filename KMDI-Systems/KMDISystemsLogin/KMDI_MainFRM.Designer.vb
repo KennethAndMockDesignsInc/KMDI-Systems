@@ -384,7 +384,7 @@ Partial Class KMDI_MainFRM
         Me.MngeAccTile.Location = New System.Drawing.Point(334, 100)
         Me.MngeAccTile.Name = "MngeAccTile"
         Me.MngeAccTile.Size = New System.Drawing.Size(128, 63)
-        Me.MngeAccTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.MngeAccTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.MngeAccTile.TabIndex = 30
         Me.MngeAccTile.Text = "Manage" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Accounts"
         Me.MngeAccTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -397,7 +397,7 @@ Partial Class KMDI_MainFRM
         Me.LogoutTile.Location = New System.Drawing.Point(468, 31)
         Me.LogoutTile.Name = "LogoutTile"
         Me.LogoutTile.Size = New System.Drawing.Size(128, 132)
-        Me.LogoutTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.LogoutTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.LogoutTile.TabIndex = 29
         Me.LogoutTile.Text = "Logout"
         Me.LogoutTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -410,7 +410,7 @@ Partial Class KMDI_MainFRM
         Me.InboxTile.Location = New System.Drawing.Point(334, 31)
         Me.InboxTile.Name = "InboxTile"
         Me.InboxTile.Size = New System.Drawing.Size(128, 63)
-        Me.InboxTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.InboxTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.InboxTile.TabIndex = 28
         Me.InboxTile.Text = "Inbox"
         Me.InboxTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -423,7 +423,7 @@ Partial Class KMDI_MainFRM
         Me.RecycleTile.Location = New System.Drawing.Point(200, 100)
         Me.RecycleTile.Name = "RecycleTile"
         Me.RecycleTile.Size = New System.Drawing.Size(128, 63)
-        Me.RecycleTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.RecycleTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.RecycleTile.TabIndex = 27
         Me.RecycleTile.Text = "Recycle"
         Me.RecycleTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -436,7 +436,7 @@ Partial Class KMDI_MainFRM
         Me.NotifTile.Location = New System.Drawing.Point(200, 31)
         Me.NotifTile.Name = "NotifTile"
         Me.NotifTile.Size = New System.Drawing.Size(128, 63)
-        Me.NotifTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.NotifTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.NotifTile.TabIndex = 26
         Me.NotifTile.Text = "Notification"
         Me.NotifTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -449,7 +449,7 @@ Partial Class KMDI_MainFRM
         Me.UpdSecTile.Location = New System.Drawing.Point(66, 31)
         Me.UpdSecTile.Name = "UpdSecTile"
         Me.UpdSecTile.Size = New System.Drawing.Size(128, 132)
-        Me.UpdSecTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.UpdSecTile.Style = MetroFramework.MetroColorStyle.Blue
         Me.UpdSecTile.TabIndex = 25
         Me.UpdSecTile.Text = "Update Security"
         Me.UpdSecTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -745,6 +745,7 @@ Partial Class KMDI_MainFRM
         Me.NewConTile.Location = New System.Drawing.Point(66, 32)
         Me.NewConTile.Name = "NewConTile"
         Me.NewConTile.Size = New System.Drawing.Size(262, 132)
+        Me.NewConTile.Style = MetroFramework.MetroColorStyle.Pink
         Me.NewConTile.TabIndex = 21
         Me.NewConTile.Text = "New"
         Me.NewConTile.TextAlign = System.Drawing.ContentAlignment.BottomRight

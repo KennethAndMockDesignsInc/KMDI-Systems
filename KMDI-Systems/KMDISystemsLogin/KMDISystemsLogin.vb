@@ -75,4 +75,28 @@
         Me.Dispose()
     End Sub
 
+    Private Sub ConnectionTypeCbox_Enter(sender As Object, e As EventArgs) Handles ConnectionTypeCbox.Enter
+        ConnectionTypeLbl.ForeColor = Color.DeepSkyBlue
+    End Sub
+
+    Private Sub ConnectionTypeCbox_Leave(sender As Object, e As EventArgs) Handles ConnectionTypeCbox.Leave
+        ConnectionTypeLbl.ForeColor = Color.White
+    End Sub
+
+    Private Sub UserNameTbox_Enter(sender As Object, e As EventArgs) Handles UserNameTbox.Enter
+        UserNameLbl.ForeColor = Color.DeepSkyBlue
+    End Sub
+
+    Private Sub UserNameTbox_Leave(sender As Object, e As EventArgs) Handles UserNameTbox.Leave
+        UserNameLbl.ForeColor = Color.White
+    End Sub
+
+    Private Sub PasswordTbox_Enter(sender As Object, e As EventArgs) Handles PasswordTbox.Enter
+        PasswordLbl.ForeColor = Color.DeepSkyBlue
+    End Sub
+
+    Private Sub PasswordTbox_Leave(sender As Object, e As EventArgs) Handles PasswordTbox.Leave
+        PasswordLbl.ForeColor = Color.White
+    End Sub
+
 End Class

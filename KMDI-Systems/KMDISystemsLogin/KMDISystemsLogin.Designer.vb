@@ -41,7 +41,7 @@ Partial Class KMDISystemsLogin
         Me.ConnectionTypeCbox.Location = New System.Drawing.Point(173, 40)
         Me.ConnectionTypeCbox.Name = "ConnectionTypeCbox"
         Me.ConnectionTypeCbox.Size = New System.Drawing.Size(184, 29)
-        Me.ConnectionTypeCbox.TabIndex = 13
+        Me.ConnectionTypeCbox.TabIndex = 2
         Me.ConnectionTypeCbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.ConnectionTypeCbox.UseSelectable = True
         '
@@ -71,7 +71,7 @@ Partial Class KMDISystemsLogin
         Me.PasswordTbox.SelectionLength = 0
         Me.PasswordTbox.SelectionStart = 0
         Me.PasswordTbox.Size = New System.Drawing.Size(184, 23)
-        Me.PasswordTbox.TabIndex = 12
+        Me.PasswordTbox.TabIndex = 1
         Me.PasswordTbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.PasswordTbox.UseSelectable = True
         Me.PasswordTbox.WaterMark = "Password"
@@ -104,7 +104,7 @@ Partial Class KMDISystemsLogin
         Me.UserNameTbox.SelectionLength = 0
         Me.UserNameTbox.SelectionStart = 0
         Me.UserNameTbox.Size = New System.Drawing.Size(184, 23)
-        Me.UserNameTbox.TabIndex = 11
+        Me.UserNameTbox.TabIndex = 0
         Me.UserNameTbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.UserNameTbox.UseSelectable = True
         Me.UserNameTbox.WaterMark = "User Name"
@@ -115,34 +115,47 @@ Partial Class KMDISystemsLogin
         '
         Me.PasswordLbl.AutoSize = True
         Me.PasswordLbl.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.PasswordLbl.ForeColor = System.Drawing.Color.White
         Me.PasswordLbl.Location = New System.Drawing.Point(25, 124)
         Me.PasswordLbl.Name = "PasswordLbl"
         Me.PasswordLbl.Size = New System.Drawing.Size(86, 25)
+        Me.PasswordLbl.Style = MetroFramework.MetroColorStyle.White
         Me.PasswordLbl.TabIndex = 10
         Me.PasswordLbl.Text = "Password:"
+        Me.PasswordLbl.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.PasswordLbl.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.PasswordLbl.UseCustomForeColor = True
+        Me.PasswordLbl.UseStyleColors = True
         '
         'UserNameLbl
         '
         Me.UserNameLbl.AutoSize = True
         Me.UserNameLbl.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.UserNameLbl.ForeColor = System.Drawing.Color.White
         Me.UserNameLbl.Location = New System.Drawing.Point(25, 84)
         Me.UserNameLbl.Name = "UserNameLbl"
         Me.UserNameLbl.Size = New System.Drawing.Size(101, 25)
+        Me.UserNameLbl.Style = MetroFramework.MetroColorStyle.White
         Me.UserNameLbl.TabIndex = 9
         Me.UserNameLbl.Text = "User Name:"
         Me.UserNameLbl.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.UserNameLbl.UseCustomForeColor = True
+        Me.UserNameLbl.UseStyleColors = True
         '
         'ConnectionTypeLbl
         '
         Me.ConnectionTypeLbl.AutoSize = True
         Me.ConnectionTypeLbl.FontSize = MetroFramework.MetroLabelSize.Tall
+        Me.ConnectionTypeLbl.ForeColor = System.Drawing.Color.White
         Me.ConnectionTypeLbl.Location = New System.Drawing.Point(25, 44)
         Me.ConnectionTypeLbl.Name = "ConnectionTypeLbl"
         Me.ConnectionTypeLbl.Size = New System.Drawing.Size(142, 25)
+        Me.ConnectionTypeLbl.Style = MetroFramework.MetroColorStyle.White
         Me.ConnectionTypeLbl.TabIndex = 8
         Me.ConnectionTypeLbl.Text = "Connection Type:"
         Me.ConnectionTypeLbl.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.ConnectionTypeLbl.UseCustomForeColor = True
+        Me.ConnectionTypeLbl.UseStyleColors = True
         '
         'LoginBtn
         '
@@ -150,7 +163,7 @@ Partial Class KMDISystemsLogin
         Me.LoginBtn.Location = New System.Drawing.Point(340, 169)
         Me.LoginBtn.Name = "LoginBtn"
         Me.LoginBtn.Size = New System.Drawing.Size(63, 23)
-        Me.LoginBtn.TabIndex = 14
+        Me.LoginBtn.TabIndex = 4
         Me.LoginBtn.Text = "Login"
         Me.LoginBtn.UseSelectable = True
         Me.LoginBtn.UseVisualStyleBackColor = True
@@ -161,7 +174,7 @@ Partial Class KMDISystemsLogin
         Me.CloseBtn.Location = New System.Drawing.Point(271, 169)
         Me.CloseBtn.Name = "CloseBtn"
         Me.CloseBtn.Size = New System.Drawing.Size(63, 23)
-        Me.CloseBtn.TabIndex = 15
+        Me.CloseBtn.TabIndex = 3
         Me.CloseBtn.Text = "Close"
         Me.CloseBtn.UseSelectable = True
         Me.CloseBtn.UseVisualStyleBackColor = True
