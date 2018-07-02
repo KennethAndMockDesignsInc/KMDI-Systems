@@ -175,6 +175,7 @@ Partial Class KMDISystemsLogin
         Me.Controls.Add(Me.ConnectionTypeLbl)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.Name = "KMDISystemsLogin"
+        Me.Resizable = False
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
