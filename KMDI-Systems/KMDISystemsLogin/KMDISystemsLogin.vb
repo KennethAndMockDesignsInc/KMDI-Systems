@@ -8,22 +8,8 @@
         MaximizeBox = False
     End Sub
 
-    Public Sub LoginChecker(sender As Object, e As KeyEventArgs)
-        Try
-            If e.KeyCode = Keys.Enter Then
-                UserNameTbox.Text = Trim(UserNameTbox.Text)
-                PasswordTbox.Text = Trim(PasswordTbox.Text)
-                If UserNameTbox.Text = Nothing Then
-                    MetroFramework.MetroMessageBox.Show(Me, "Please enter username", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    Exit Sub
-                ElseIf PasswordTbox.Text = Nothing Then
-                    MetroFramework.MetroMessageBox.Show(Me, "Please enter password", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-                    Exit Sub
-                End If
-            End If
-        Catch ex As Exception
-            MetroFramework.MetroMessageBox.Show(Me, ex.ToString, "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
-        End Try
+    Public Sub LoginChecker()
+
     End Sub
 
     Public Sub Login()
@@ -64,7 +50,20 @@
     End Sub
 
     Private Sub LoginBtn_Click(sender As Object, e As EventArgs) Handles LoginBtn.Click
-        LoginChecker(sender, e)
+        Try
+            KMDISystems_UserName = Trim(KMDISystems_UserName)
+            KMDISystems_Password = Trim(KMDISystems_Password)
+            If KMDISystems_UserName = Nothing Then
+                MetroFramework.MetroMessageBox.Show(Me, "Please enter username", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            ElseIf KMDISystems_Password = Nothing Then
+                MetroFramework.MetroMessageBox.Show(Me, "Please enter password", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+                Exit Sub
+            End If
+        Catch ex As Exception
+            MetroFramework.MetroMessageBox.Show(Me, ex.ToString, "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
+        End Try
+
         Login()
     End Sub
 
@@ -75,16 +74,5 @@
     Private Sub KMDISystemsLogin_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Me.Dispose()
     End Sub
-<<<<<<< HEAD
 
-    Private Sub ConnectionTypeCbox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ConnectionTypeCbox.SelectionChangeCommitted
-        If ConnectionTypeCbox.SelectedIndex = 0 Then
-            KMDISystemsLogin_AccessPoint = "192.168.1.21,49107"
-        ElseIf ConnectionTypeCbox.SelectedIndex = 1 Then
-            KMDISystemsLogin_AccessPoint = "121.58.229.248,49107"
-        End If
-    End Sub
-
-=======
->>>>>>> 61f473d1da9335bba4186331f6501be04a40314e
 End Class
