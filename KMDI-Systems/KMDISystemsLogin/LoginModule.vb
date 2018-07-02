@@ -7,7 +7,7 @@ Imports System.Security.Cryptography
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Module LoginModule
-    Dim AccessPoint As String = "192.168.1.21,49107"
+    Dim AccessPoint As String = KMDISystemsLogin.KMDISystemsLogin_AccessPoint
     Dim DBName As String = "HERETOSAVE"
     Dim DBUserName As String = "kmdiadmin"
     Dim DBPassword As String = "kmdiadmin"
@@ -32,15 +32,29 @@ Module LoginModule
                 Exit Sub
             End Try
 
-            Query = "Select *
+            Query = "Select [ACCTTYPE]
                      From KMDI_ACCT_TB
                      Where [username] = @UserName AND [password] COLLATE Latin1_General_CS_AS = @Password"
             sqlCommand = New SqlCommand(Query, sqlConnection)
             sqlCommand.Parameters.AddWithValue("@UserName", UserName)
             sqlCommand.Parameters.AddWithValue("@Password", Encrypt(Password))
             Read = sqlCommand.ExecuteReader
-            If Read.HasRows = True Then
-                KMDI_MainFRM.Show()
+            Read.Read()
+            If Read.HasRows Then
+                If Read("ACCTTYPE").ToString() = "Admin" Then
+                    With KMDI_MainFRM
+                        .Show()
+                        .DBNameCbox.Items.Insert(0, "KMDIDATA")
+                        .DBNameCbox.Items.Insert(1, "HAUSERDB")
+                        .DBNameCbox.Items.Insert(2, "HERETOSAVE")
+                    End With
+                Else
+                    With KMDI_MainFRM
+                        .Show()
+                        .DBNameCbox.Items.Insert(0, "KMDIDATA")
+                        .DBNameCbox.Items.Insert(1, "HAUSERDB")
+                    End With
+                End If
                 KMDISystemsLogin.Close()
             Else
                 MetroFramework.MetroMessageBox.Show(KMDISystemsLogin, "Login failed! Please Try again", "", MessageBoxButtons.OK, MessageBoxIcon.Hand)
@@ -114,7 +128,6 @@ Module LoginModule
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
-
     Public Sub rowpostpaint(ByVal sender As Object, ByVal e As DataGridViewRowPostPaintEventArgs)
         Dim grid As DataGridView = DirectCast(sender, DataGridView)
         e.PaintHeader(DataGridViewPaintParts.Background)
