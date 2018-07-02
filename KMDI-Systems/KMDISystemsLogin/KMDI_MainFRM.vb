@@ -4,8 +4,8 @@
     End Sub
 
     Private Sub KMDI_MainFRM_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Me.Dispose()
         KMDISystemsLogin.Show()
+        Me.Dispose()
     End Sub
 
     Private Sub MetroPanel6_Paint(sender As Object, e As PaintEventArgs)

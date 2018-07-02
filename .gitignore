@@ -1,7 +1,4 @@
 
 *.txt
-*.exe
-*.pdb
-*.exe
-*.pdb
 *.txt
+*.Cache

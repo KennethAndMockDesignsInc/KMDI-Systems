@@ -46,13 +46,15 @@ Module LoginModule
                         .Show()
                         .DBNameCbox.Items.Insert(0, "KMDIDATA")
                         .DBNameCbox.Items.Insert(1, "HAUSERDB")
-                        .DBNameCbox.Items.Insert(2, "HERETOSAVE")
+                        .DbNameCbox.Items.Insert(2, "HERETOSAVE")
+                        .DbNameCbox.SelectedIndex = 0
                     End With
                 Else
                     With KMDI_MainFRM
                         .Show()
                         .DBNameCbox.Items.Insert(0, "KMDIDATA")
-                        .DBNameCbox.Items.Insert(1, "HAUSERDB")
+                        .DbNameCbox.Items.Insert(1, "HAUSERDB")
+                        .DbNameCbox.SelectedIndex = 0
                     End With
                 End If
                 KMDISystemsLogin.Close()
