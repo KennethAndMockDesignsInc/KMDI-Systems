@@ -2,3 +2,9 @@
 *.txt
 *.txt
 *.Cache
+.vs/KMDI-Systems/v14/.suo
+KMDI-Systems/bin/Debug/KMDI-Systems.exe
+KMDI-Systems/bin/Debug/KMDI-Systems.pdb
+KMDI-Systems/obj/Debug/KMDI-Systems.exe
+KMDI-Systems/obj/Debug/KMDI-Systems.pdb
+KMDI-Systems/obj/Debug/KMDI-Systems.vbproj.GenerateResource.Cache
