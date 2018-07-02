@@ -42,6 +42,7 @@ Partial Class KMDISystemsLogin
         Me.ConnectionTypeCbox.Name = "ConnectionTypeCbox"
         Me.ConnectionTypeCbox.Size = New System.Drawing.Size(184, 29)
         Me.ConnectionTypeCbox.TabIndex = 13
+        Me.ConnectionTypeCbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.ConnectionTypeCbox.UseSelectable = True
         '
         'PasswordTbox
@@ -71,6 +72,7 @@ Partial Class KMDISystemsLogin
         Me.PasswordTbox.SelectionStart = 0
         Me.PasswordTbox.Size = New System.Drawing.Size(184, 23)
         Me.PasswordTbox.TabIndex = 12
+        Me.PasswordTbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.PasswordTbox.UseSelectable = True
         Me.PasswordTbox.WaterMark = "Password"
         Me.PasswordTbox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -103,6 +105,7 @@ Partial Class KMDISystemsLogin
         Me.UserNameTbox.SelectionStart = 0
         Me.UserNameTbox.Size = New System.Drawing.Size(184, 23)
         Me.UserNameTbox.TabIndex = 11
+        Me.UserNameTbox.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.UserNameTbox.UseSelectable = True
         Me.UserNameTbox.WaterMark = "User Name"
         Me.UserNameTbox.WaterMarkColor = System.Drawing.Color.FromArgb(CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(109, Byte), Integer))
@@ -117,6 +120,7 @@ Partial Class KMDISystemsLogin
         Me.PasswordLbl.Size = New System.Drawing.Size(86, 25)
         Me.PasswordLbl.TabIndex = 10
         Me.PasswordLbl.Text = "Password:"
+        Me.PasswordLbl.Theme = MetroFramework.MetroThemeStyle.Dark
         '
         'UserNameLbl
         '
@@ -127,6 +131,7 @@ Partial Class KMDISystemsLogin
         Me.UserNameLbl.Size = New System.Drawing.Size(101, 25)
         Me.UserNameLbl.TabIndex = 9
         Me.UserNameLbl.Text = "User Name:"
+        Me.UserNameLbl.Theme = MetroFramework.MetroThemeStyle.Dark
         '
         'ConnectionTypeLbl
         '
@@ -137,6 +142,7 @@ Partial Class KMDISystemsLogin
         Me.ConnectionTypeLbl.Size = New System.Drawing.Size(142, 25)
         Me.ConnectionTypeLbl.TabIndex = 8
         Me.ConnectionTypeLbl.Text = "Connection Type:"
+        Me.ConnectionTypeLbl.Theme = MetroFramework.MetroThemeStyle.Dark
         '
         'LoginBtn
         '
@@ -175,6 +181,8 @@ Partial Class KMDISystemsLogin
         Me.Controls.Add(Me.ConnectionTypeLbl)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.Name = "KMDISystemsLogin"
+        Me.Resizable = False
+        Me.Theme = MetroFramework.MetroThemeStyle.Dark
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
