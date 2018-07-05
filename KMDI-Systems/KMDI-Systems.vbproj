@@ -84,30 +84,36 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KMDISystemsLogin\KMDISystemsLogin.vb">
+    <Compile Include="KMDISystemsLogin\Forms\ChangeTilePermision.Designer.vb">
+      <DependentUpon>ChangeTilePermision.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KMDISystemsLogin\Forms\ChangeTilePermision.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KMDISystemsLogin\KMDISystemsLogin.Designer.vb">
+    <Compile Include="KMDISystemsLogin\Forms\KMDISystemsLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KMDISystemsLogin\Forms\KMDISystemsLogin.Designer.vb">
       <DependentUpon>KMDISystemsLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KMDISystemsLogin\KMDI_MainFRM.Designer.vb">
+    <Compile Include="KMDISystemsLogin\Forms\KMDI_MainFRM.Designer.vb">
       <DependentUpon>KMDI_MainFRM.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\KMDI_MainFRM.vb">
+    <Compile Include="KMDISystemsLogin\Forms\KMDI_MainFRM.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KMDISystemsLogin\LoginModule.vb" />
-    <Compile Include="KMDISystemsLogin\ManageAccounts.Designer.vb">
+    <Compile Include="KMDISystemsLogin\Module\LoginModule.vb" />
+    <Compile Include="KMDISystemsLogin\Forms\ManageAccounts.Designer.vb">
       <DependentUpon>ManageAccounts.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\ManageAccounts.vb">
+    <Compile Include="KMDISystemsLogin\Forms\ManageAccounts.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KMDISystemsLogin\ManageUserAccess.Designer.vb">
-      <DependentUpon>ManageUserAccess.vb</DependentUpon>
+    <Compile Include="KMDISystemsLogin\Forms\ChangeWritePermision.Designer.vb">
+      <DependentUpon>ChangeWritePermision.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\ManageUserAccess.vb">
+    <Compile Include="KMDISystemsLogin\Forms\ChangeWritePermision.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -127,17 +133,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="KMDISystemsLogin\KMDISystemsLogin.resx">
+    <EmbeddedResource Include="KMDISystemsLogin\Forms\ChangeTilePermision.resx">
+      <DependentUpon>ChangeTilePermision.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KMDISystemsLogin\Forms\KMDISystemsLogin.resx">
       <DependentUpon>KMDISystemsLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KMDISystemsLogin\KMDI_MainFRM.resx">
+    <EmbeddedResource Include="KMDISystemsLogin\Forms\KMDI_MainFRM.resx">
       <DependentUpon>KMDI_MainFRM.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KMDISystemsLogin\ManageAccounts.resx">
+    <EmbeddedResource Include="KMDISystemsLogin\Forms\ManageAccounts.resx">
       <DependentUpon>ManageAccounts.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KMDISystemsLogin\ManageUserAccess.resx">
-      <DependentUpon>ManageUserAccess.vb</DependentUpon>
+    <EmbeddedResource Include="KMDISystemsLogin\Forms\ChangeWritePermision.resx">
+      <DependentUpon>ChangeWritePermision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -22,17 +22,21 @@ Partial Class ManageAccounts
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FullnameTbox = New MetroFramework.Controls.MetroTextBox()
         Me.AddUserBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         Me.UserAcctDGV = New MetroFramework.Controls.MetroGrid()
         Me.NicknameTbox = New MetroFramework.Controls.MetroTextBox()
         Me.UserAccessCbox = New MetroFramework.Controls.MetroComboBox()
+        Me.PermisionMenu = New MetroFramework.Controls.MetroContextMenu(Me.components)
+        Me.TilePermisionMenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.WritePermisionMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateUserBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
-        Me.AddUserAccessBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         CType(Me.UserAcctDGV, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PermisionMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'FullnameTbox
@@ -77,9 +81,9 @@ Partial Class ManageAccounts
         Me.AddUserBtn.BackColor = System.Drawing.Color.Black
         Me.AddUserBtn.ForeColor = System.Drawing.Color.Black
         Me.AddUserBtn.Image = Nothing
-        Me.AddUserBtn.Location = New System.Drawing.Point(729, 43)
+        Me.AddUserBtn.Location = New System.Drawing.Point(699, 43)
         Me.AddUserBtn.Name = "AddUserBtn"
-        Me.AddUserBtn.Size = New System.Drawing.Size(55, 29)
+        Me.AddUserBtn.Size = New System.Drawing.Size(68, 29)
         Me.AddUserBtn.Style = MetroFramework.MetroColorStyle.Teal
         Me.AddUserBtn.TabIndex = 4
         Me.AddUserBtn.Text = "&Add"
@@ -100,23 +104,23 @@ Partial Class ManageAccounts
         Me.UserAcctDGV.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.UserAcctDGV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.UserAcctDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.UserAcctDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.UserAcctDGV.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.UserAcctDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.UserAcctDGV.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.UserAcctDGV.DefaultCellStyle = DataGridViewCellStyle2
         Me.UserAcctDGV.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.UserAcctDGV.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.UserAcctDGV.EnableHeadersVisualStyles = False
@@ -127,14 +131,14 @@ Partial Class ManageAccounts
         Me.UserAcctDGV.Name = "UserAcctDGV"
         Me.UserAcctDGV.ReadOnly = True
         Me.UserAcctDGV.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.UserAcctDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(85, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(102, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.UserAcctDGV.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.UserAcctDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.UserAcctDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.UserAcctDGV.Size = New System.Drawing.Size(825, 304)
@@ -192,13 +196,34 @@ Partial Class ManageAccounts
         Me.UserAccessCbox.UseSelectable = True
         Me.UserAccessCbox.UseStyleColors = True
         '
+        'PermisionMenu
+        '
+        Me.PermisionMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TilePermisionMenu, Me.WritePermisionMenu})
+        Me.PermisionMenu.Name = "PermisionMenu"
+        Me.PermisionMenu.Size = New System.Drawing.Size(208, 48)
+        Me.PermisionMenu.Style = MetroFramework.MetroColorStyle.Blue
+        Me.PermisionMenu.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.PermisionMenu.UseStyleColors = True
+        '
+        'TilePermisionMenu
+        '
+        Me.TilePermisionMenu.Name = "TilePermisionMenu"
+        Me.TilePermisionMenu.Size = New System.Drawing.Size(207, 22)
+        Me.TilePermisionMenu.Text = "Change Tile Permisions"
+        '
+        'WritePermisionMenu
+        '
+        Me.WritePermisionMenu.Name = "WritePermisionMenu"
+        Me.WritePermisionMenu.Size = New System.Drawing.Size(207, 22)
+        Me.WritePermisionMenu.Text = "Change Write Permisions"
+        '
         'UpdateUserBtn
         '
         Me.UpdateUserBtn.ForeColor = System.Drawing.Color.Black
         Me.UpdateUserBtn.Image = Nothing
-        Me.UpdateUserBtn.Location = New System.Drawing.Point(787, 43)
+        Me.UpdateUserBtn.Location = New System.Drawing.Point(773, 43)
         Me.UpdateUserBtn.Name = "UpdateUserBtn"
-        Me.UpdateUserBtn.Size = New System.Drawing.Size(55, 29)
+        Me.UpdateUserBtn.Size = New System.Drawing.Size(68, 29)
         Me.UpdateUserBtn.TabIndex = 5
         Me.UpdateUserBtn.Text = "Updat&e"
         Me.UpdateUserBtn.UseCustomForeColor = True
@@ -206,27 +231,11 @@ Partial Class ManageAccounts
         Me.UpdateUserBtn.UseStyleColors = True
         Me.UpdateUserBtn.UseVisualStyleBackColor = True
         '
-        'AddUserAccessBtn
-        '
-        Me.AddUserAccessBtn.Image = Nothing
-        Me.AddUserAccessBtn.Location = New System.Drawing.Point(698, 43)
-        Me.AddUserAccessBtn.Name = "AddUserAccessBtn"
-        Me.AddUserAccessBtn.Size = New System.Drawing.Size(19, 29)
-        Me.AddUserAccessBtn.Style = MetroFramework.MetroColorStyle.Teal
-        Me.AddUserAccessBtn.TabIndex = 7
-        Me.AddUserAccessBtn.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.AddUserAccessBtn.UseCustomBackColor = True
-        Me.AddUserAccessBtn.UseCustomForeColor = True
-        Me.AddUserAccessBtn.UseSelectable = True
-        Me.AddUserAccessBtn.UseStyleColors = True
-        Me.AddUserAccessBtn.UseVisualStyleBackColor = True
-        '
         'ManageAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(865, 414)
-        Me.Controls.Add(Me.AddUserAccessBtn)
         Me.Controls.Add(Me.UpdateUserBtn)
         Me.Controls.Add(Me.UserAccessCbox)
         Me.Controls.Add(Me.NicknameTbox)
@@ -237,6 +246,7 @@ Partial Class ManageAccounts
         Me.Resizable = False
         Me.Theme = MetroFramework.MetroThemeStyle.[Default]
         CType(Me.UserAcctDGV, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PermisionMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -246,6 +256,8 @@ Partial Class ManageAccounts
     Friend WithEvents UserAcctDGV As MetroFramework.Controls.MetroGrid
     Friend WithEvents NicknameTbox As MetroFramework.Controls.MetroTextBox
     Friend WithEvents UserAccessCbox As MetroFramework.Controls.MetroComboBox
-    Friend WithEvents UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
-    Friend WithEvents AddUserAccessBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents PermisionMenu As MetroFramework.Controls.MetroContextMenu
+    Friend WithEvents TilePermisionMenu As ToolStripMenuItem
+    Friend WithEvents WritePermisionMenu As ToolStripMenuItem
+    Friend UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
 End Class

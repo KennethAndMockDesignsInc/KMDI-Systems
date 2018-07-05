@@ -7,6 +7,8 @@ Imports System.Security.Cryptography
 Imports System.Windows.Forms.DataVisualization.Charting
 
 Module LoginModule
+    Public AccountType As String
+
     Dim AccessPoint As String = KMDISystemsLogin.KMDISystemsLogin_AccessPoint
     Dim DBName As String = "HERETOSAVE"
     Dim DBUserName As String = "kmdiadmin"
@@ -15,10 +17,13 @@ Module LoginModule
     Public sqlCommand As SqlCommand
     Public Read As SqlDataReader
 
-    Public sqlDataAdapter As New SqlDataAdapter
-    Public sqlDataSet As New DataSet
-    Public sqlBindingSource As New BindingSource
+    Public sqlDataAdapter As SqlDataAdapter
+    Public sqlDataSet As DataSet
+    Public sqlBindingSource As BindingSource
     Public Query As String
+
+    Dim confirmQuery As Integer
+
 
     Public Sub KMDISystems_Login(ByVal UserName As String,
                                  ByVal Password As String)
@@ -41,11 +46,12 @@ Module LoginModule
             Read = sqlCommand.ExecuteReader
             Read.Read()
             If Read.HasRows Then
+                AccountType = Read.Item("ACCTTYPE").ToString
                 If Read("ACCTTYPE").ToString() = "Admin" Then
                     With KMDI_MainFRM
                         .Show()
-                        .DBNameCbox.Items.Insert(0, "KMDIDATA")
-                        .DBNameCbox.Items.Insert(1, "HAUSERDB")
+                        .DbNameCbox.Items.Insert(0, "KMDIDATA")
+                        .DbNameCbox.Items.Insert(1, "HAUSERDB")
                         .DbNameCbox.Items.Insert(2, "HERETOSAVE")
                         .DbNameCbox.SelectedIndex = 0
                     End With
@@ -102,6 +108,11 @@ Module LoginModule
     End Function
 
     Public Sub KMDI_ACCT_TB_READ()
+        Dim sqlDataAdapter As New SqlDataAdapter
+        Dim sqlDataSet As New DataSet
+        Dim sqlBindingSource As New BindingSource
+
+
         Try
             sqlConnection.Close()
             sqlConnection.Open()
@@ -148,32 +159,132 @@ Module LoginModule
         e.Graphics.DrawString(rowIdx, rowFont, SystemBrushes.ControlText, headerBounds, centerFormat)
     End Sub
 
-    Public Sub KMDI_ACCT_ACCESS_TB_READ()
+    Public Sub KMDI_ACCT_ACCESS_TB_READ_FOR_ChangeWritePermision(ByVal UserAcctAutonum As String)
         Try
+            Dim sqlDataAdapter As New SqlDataAdapter
+            Dim sqlDataSet As New DataSet
+            Dim sqlBindingSource As New BindingSource
+
             sqlConnection.Close()
             sqlConnection.Open()
 
             sqlDataSet.Clear()
             Query = "SELECT [Autonumber]
-                           ,[UserAccess] as [User Access]
-                           ,[AccessCode] as [Access Code]
-                     FROM [KMDI_ACCT_ACCESS_TB]"
+                           ,[ACCTYPE] as [Account Type]
+                           ,[TileAccess] as [Tile]
+                           ,[Write] as [Write]
+                           ,[UserAcctAutonum] as [User ID]
+                     FROM [KMDI_ACCT_ACCESS_TB]
+                     WHERE [UserAcctAutonum] = @UserAcctAutonum"
             sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlCommand.Parameters.AddWithValue("@UserAcctAutonum", UserAcctAutonum)
+
             sqlDataAdapter.SelectCommand = sqlCommand
             sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_ACCESS_TB")
             sqlBindingSource.DataSource = sqlDataSet
             sqlBindingSource.DataMember = "KMDI_ACCT_ACCESS_TB"
-            ManageUserAccess.UserAccessDGV.DataSource = sqlBindingSource
+            ChangeWritePermision.UserAccessDGV.DataSource = sqlBindingSource
 
-            With ManageUserAccess.UserAccessDGV
+            With ChangeWritePermision.UserAccessDGV
                 .DefaultCellStyle.BackColor = Color.White
                 .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
             End With
 
-            ManageUserAccess.UserAccessDGV.Columns("Autonumber").Visible = False
+            ChangeWritePermision.UserAccessDGV.Columns("Autonumber").Visible = False
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
+
+    Public Sub UserAccessCbox_Popolate()
+        Try
+            Dim sqlDataAdapter As New SqlDataAdapter
+            Dim sqlDataSet As New DataSet
+            Dim sqlBindingSource As New BindingSource
+
+            sqlConnection.Close()
+            sqlConnection.Open()
+
+            sqlDataSet.Clear()
+            Query = "Select Distinct [ACCTTYPE] 
+                     FROM [KMDI_ACCT_TB]"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlDataAdapter.SelectCommand = sqlCommand
+            sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_TB2")
+            sqlBindingSource.DataSource = sqlDataSet
+            sqlBindingSource.DataMember = "KMDI_ACCT_TB2"
+            ManageAccounts.UserAccessCbox.DataSource = sqlBindingSource
+            ManageAccounts.UserAccessCbox.ValueMember = "ACCTTYPE"
+            ManageAccounts.UserAccessCbox.SelectedIndex = -1
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+    Public Sub KMDI_ACCT_ACCESS_TB_INSERT(ByVal ACCTYPE As String,
+                                          ByVal TileAccess As String,
+                                          ByVal Write As String,
+                                          ByVal UserAcctAutonum As String)
+        Try
+            Query = "INSERT INTO [KMDI_ACCT_ACCESS_TB] ([ACCTYPE]
+                                                       ,[TileAccess]
+                                                       ,[Write]
+                                                       ,[UserAcctAutonum])
+                                                VALUES (@ACCTYPE,
+                                                        @TileAccess,
+                                                        @Write,
+                                                        @UserAcctAutonum)"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlCommand.Parameters.AddWithValue("@ACCTYPE", ACCTYPE)
+            sqlCommand.Parameters.AddWithValue("@TileAccess", TileAccess)
+            sqlCommand.Parameters.AddWithValue("@Write", Write)
+            sqlCommand.Parameters.AddWithValue("@UserAcctAutonum", UserAcctAutonum)
+            confirmQuery = sqlCommand.ExecuteNonQuery
+
+            If confirmQuery <> 0 Then
+                MetroFramework.MetroMessageBox.Show(ChangeWritePermision, "Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MetroFramework.MetroMessageBox.Show(ChangeWritePermision, "Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub KMDI_ACCT_ACCESS_TB_READ_FOR_ChangeTilePermision(ByVal UserAcctAutonum As String)
+        Try
+            Dim sqlDataAdapter As New SqlDataAdapter
+            Dim sqlDataSet As New DataSet
+            Dim sqlBindingSource As New BindingSource
+            Dim tileAccessHere As String
+            sqlConnection.Close()
+            sqlConnection.Open()
+
+            sqlDataSet.Clear()
+            Query = "SELECT [TileAccess] as [Tile]
+                       FROM [KMDI_ACCT_ACCESS_TB]
+                     WHERE [UserAcctAutonum] = @UserAcctAutonum"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlCommand.Parameters.AddWithValue("@UserAcctAutonum", UserAcctAutonum)
+
+            Read = sqlCommand.ExecuteReader
+
+            While Read.Read
+                If Read.HasRows Then
+                    tileAccessHere = Read.Item("Tile").ToString
+                    ChangeTilePermision.tileAccess += "|" + tileAccessHere
+                Else
+                    MsgBox("no result")
+                    Exit While
+                End If
+            End While
+            Read.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
+
 End Module
