@@ -26,7 +26,6 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.MetroPanel9 = New MetroFramework.Controls.MetroPanel()
-        Me.NewConTile = New MetroFramework.Controls.MetroTile()
         Me.ContractsLBL = New MetroFramework.Controls.MetroLabel()
         Me.MetroPanel10 = New MetroFramework.Controls.MetroPanel()
         Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
@@ -76,6 +75,8 @@ Partial Class KMDI_MainFRM
         Me.LogoutTile = New MetroFramework.Controls.MetroTile()
         Me.AcctsLBL = New MetroFramework.Controls.MetroLabel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel9 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.NewConTile = New MetroFramework.Controls.MetroTile()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.MetroPanel9.SuspendLayout()
         Me.MetroPanel10.SuspendLayout()
@@ -88,6 +89,7 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel5.SuspendLayout()
         Me.MetroPanel8.SuspendLayout()
         Me.FlowLayoutPanel8.SuspendLayout()
+        Me.FlowLayoutPanel9.SuspendLayout()
         Me.SuspendLayout()
         '
         'DbNameCbox
@@ -125,8 +127,8 @@ Partial Class KMDI_MainFRM
         '
         'MetroPanel9
         '
-        Me.MetroPanel9.Controls.Add(Me.NewConTile)
         Me.MetroPanel9.Controls.Add(Me.ContractsLBL)
+        Me.MetroPanel9.Controls.Add(Me.FlowLayoutPanel9)
         Me.MetroPanel9.HorizontalScrollbarBarColor = True
         Me.MetroPanel9.HorizontalScrollbarHighlightOnWheel = False
         Me.MetroPanel9.HorizontalScrollbarSize = 10
@@ -138,21 +140,6 @@ Partial Class KMDI_MainFRM
         Me.MetroPanel9.VerticalScrollbarBarColor = True
         Me.MetroPanel9.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel9.VerticalScrollbarSize = 10
-        '
-        'NewConTile
-        '
-        Me.NewConTile.ActiveControl = Nothing
-        Me.NewConTile.ForeColor = System.Drawing.Color.Black
-        Me.NewConTile.Location = New System.Drawing.Point(66, 32)
-        Me.NewConTile.Name = "NewConTile"
-        Me.NewConTile.Size = New System.Drawing.Size(262, 132)
-        Me.NewConTile.Style = MetroFramework.MetroColorStyle.Pink
-        Me.NewConTile.TabIndex = 21
-        Me.NewConTile.Text = "New"
-        Me.NewConTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.NewConTile.Theme = MetroFramework.MetroThemeStyle.Dark
-        Me.NewConTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
-        Me.NewConTile.UseSelectable = True
         '
         'ContractsLBL
         '
@@ -181,7 +168,6 @@ Partial Class KMDI_MainFRM
         Me.MetroPanel10.VerticalScrollbarBarColor = True
         Me.MetroPanel10.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel10.VerticalScrollbarSize = 10
-        Me.MetroPanel10.Visible = False
         '
         'FlowLayoutPanel6
         '
@@ -560,7 +546,6 @@ Partial Class KMDI_MainFRM
         Me.MetroPanel6.VerticalScrollbarBarColor = True
         Me.MetroPanel6.VerticalScrollbarHighlightOnWheel = False
         Me.MetroPanel6.VerticalScrollbarSize = 10
-        Me.MetroPanel6.Visible = False
         '
         'FlowLayoutPanel5
         '
@@ -814,6 +799,31 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(20, 680)
         Me.FlowLayoutPanel1.TabIndex = 3
         '
+        'FlowLayoutPanel9
+        '
+        Me.FlowLayoutPanel9.Controls.Add(Me.NewConTile)
+        Me.FlowLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel9.Location = New System.Drawing.Point(0, 32)
+        Me.FlowLayoutPanel9.Name = "FlowLayoutPanel9"
+        Me.FlowLayoutPanel9.Padding = New System.Windows.Forms.Padding(66, 0, 0, 0)
+        Me.FlowLayoutPanel9.Size = New System.Drawing.Size(645, 140)
+        Me.FlowLayoutPanel9.TabIndex = 22
+        '
+        'NewConTile
+        '
+        Me.NewConTile.ActiveControl = Nothing
+        Me.NewConTile.ForeColor = System.Drawing.Color.Black
+        Me.NewConTile.Location = New System.Drawing.Point(69, 3)
+        Me.NewConTile.Name = "NewConTile"
+        Me.NewConTile.Size = New System.Drawing.Size(262, 132)
+        Me.NewConTile.Style = MetroFramework.MetroColorStyle.Pink
+        Me.NewConTile.TabIndex = 21
+        Me.NewConTile.Text = "New"
+        Me.NewConTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.NewConTile.Theme = MetroFramework.MetroThemeStyle.Dark
+        Me.NewConTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
+        Me.NewConTile.UseSelectable = True
+        '
         'KMDI_MainFRM
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -848,6 +858,7 @@ Partial Class KMDI_MainFRM
         Me.MetroPanel8.ResumeLayout(False)
         Me.MetroPanel8.PerformLayout()
         Me.FlowLayoutPanel8.ResumeLayout(False)
+        Me.FlowLayoutPanel9.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -855,7 +866,6 @@ Partial Class KMDI_MainFRM
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents MetroPanel9 As MetroFramework.Controls.MetroPanel
-    Friend WithEvents NewConTile As MetroFramework.Controls.MetroTile
     Friend WithEvents ContractsLBL As MetroFramework.Controls.MetroLabel
     Friend WithEvents MetroPanel10 As MetroFramework.Controls.MetroPanel
     Friend WithEvents FlowLayoutPanel6 As FlowLayoutPanel
@@ -905,4 +915,6 @@ Partial Class KMDI_MainFRM
     Friend WithEvents LogoutTile As MetroFramework.Controls.MetroTile
     Friend WithEvents AcctsLBL As MetroFramework.Controls.MetroLabel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel9 As FlowLayoutPanel
+    Friend WithEvents NewConTile As MetroFramework.Controls.MetroTile
 End Class
