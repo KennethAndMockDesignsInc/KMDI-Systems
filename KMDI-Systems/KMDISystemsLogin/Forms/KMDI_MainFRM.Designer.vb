@@ -63,6 +63,7 @@ Partial Class KMDI_MainFRM
         Me.ProdLBL = New MetroFramework.Controls.MetroLabel()
         Me.MetroPanel11 = New MetroFramework.Controls.MetroPanel()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddendumTile = New MetroFramework.Controls.MetroTile()
         Me.CheckBalTile = New MetroFramework.Controls.MetroTile()
         Me.SUSTile = New MetroFramework.Controls.MetroTile()
         Me.CallerInfoTile = New MetroFramework.Controls.MetroTile()
@@ -70,13 +71,13 @@ Partial Class KMDI_MainFRM
         Me.CollectionTile = New MetroFramework.Controls.MetroTile()
         Me.SalesMonitoringTile = New MetroFramework.Controls.MetroTile()
         Me.SalesItineraryTile = New MetroFramework.Controls.MetroTile()
-        Me.AddendumTile = New MetroFramework.Controls.MetroTile()
         Me.SalesNOperationLBL = New MetroFramework.Controls.MetroLabel()
         Me.MetroPanel9 = New MetroFramework.Controls.MetroPanel()
         Me.NewConTile = New MetroFramework.Controls.MetroTile()
         Me.ContractsLBL = New MetroFramework.Controls.MetroLabel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.WinDoorMakerTile = New MetroFramework.Controls.MetroTile()
         Me.MetroPanel1.SuspendLayout()
         Me.MetroPanel3.SuspendLayout()
         Me.MetroPanel6.SuspendLayout()
@@ -165,6 +166,7 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel5.Controls.Add(Me.AccessoriesTile)
         Me.FlowLayoutPanel5.Controls.Add(Me.InvTile)
         Me.FlowLayoutPanel5.Controls.Add(Me.AFirmTile)
+        Me.FlowLayoutPanel5.Controls.Add(Me.WinDoorMakerTile)
         Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel5.Location = New System.Drawing.Point(0, 32)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
@@ -666,6 +668,19 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel4.Size = New System.Drawing.Size(645, 140)
         Me.FlowLayoutPanel4.TabIndex = 4
         '
+        'AddendumTile
+        '
+        Me.AddendumTile.ActiveControl = Nothing
+        Me.AddendumTile.Location = New System.Drawing.Point(63, 3)
+        Me.AddendumTile.Name = "AddendumTile"
+        Me.AddendumTile.Size = New System.Drawing.Size(128, 63)
+        Me.AddendumTile.Style = MetroFramework.MetroColorStyle.Green
+        Me.AddendumTile.TabIndex = 19
+        Me.AddendumTile.Text = "Addendum"
+        Me.AddendumTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.AddendumTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
+        Me.AddendumTile.UseSelectable = True
+        '
         'CheckBalTile
         '
         Me.CheckBalTile.ActiveControl = Nothing
@@ -757,19 +772,6 @@ Partial Class KMDI_MainFRM
         Me.SalesItineraryTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
         Me.SalesItineraryTile.UseSelectable = True
         '
-        'AddendumTile
-        '
-        Me.AddendumTile.ActiveControl = Nothing
-        Me.AddendumTile.Location = New System.Drawing.Point(63, 3)
-        Me.AddendumTile.Name = "AddendumTile"
-        Me.AddendumTile.Size = New System.Drawing.Size(128, 63)
-        Me.AddendumTile.Style = MetroFramework.MetroColorStyle.Green
-        Me.AddendumTile.TabIndex = 19
-        Me.AddendumTile.Text = "Addendum"
-        Me.AddendumTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
-        Me.AddendumTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
-        Me.AddendumTile.UseSelectable = True
-        '
         'SalesNOperationLBL
         '
         Me.SalesNOperationLBL.AutoSize = True
@@ -840,6 +842,20 @@ Partial Class KMDI_MainFRM
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(20, 680)
         Me.FlowLayoutPanel2.TabIndex = 4
+        '
+        'WinDoorMakerTile
+        '
+        Me.WinDoorMakerTile.ActiveControl = Nothing
+        Me.WinDoorMakerTile.ForeColor = System.Drawing.Color.Black
+        Me.WinDoorMakerTile.Location = New System.Drawing.Point(337, 72)
+        Me.WinDoorMakerTile.Name = "WinDoorMakerTile"
+        Me.WinDoorMakerTile.Size = New System.Drawing.Size(128, 63)
+        Me.WinDoorMakerTile.Style = MetroFramework.MetroColorStyle.Red
+        Me.WinDoorMakerTile.TabIndex = 29
+        Me.WinDoorMakerTile.Text = "WinDoor Maker"
+        Me.WinDoorMakerTile.TextAlign = System.Drawing.ContentAlignment.BottomRight
+        Me.WinDoorMakerTile.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold
+        Me.WinDoorMakerTile.UseSelectable = True
         '
         'KMDI_MainFRM
         '
@@ -935,4 +951,5 @@ Partial Class KMDI_MainFRM
     Friend WithEvents MngeAccTile As MetroFramework.Controls.MetroTile
     Friend WithEvents LogoutTile As MetroFramework.Controls.MetroTile
     Friend WithEvents SalesNOperationLBL As MetroFramework.Controls.MetroLabel
+    Friend WithEvents WinDoorMakerTile As MetroFramework.Controls.MetroTile
 End Class

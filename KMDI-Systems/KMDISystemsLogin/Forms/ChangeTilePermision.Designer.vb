@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ChangeTilePermision
     Inherits MetroFramework.Forms.MetroForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ChangeTilePermision
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
@@ -53,11 +53,6 @@ Partial Class ChangeTilePermision
         Me.DeliveryRecieptsChk = New MetroFramework.Controls.MetroCheckBox()
         Me.EngrSDRequestChk = New MetroFramework.Controls.MetroCheckBox()
         Me.SaveManageBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
-        Me.MetroTextButton1 = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -405,6 +400,7 @@ Partial Class ChangeTilePermision
         '
         'EngrSDRequestChk
         '
+        Me.EngrSDRequestChk.AccessibleName = ""
         Me.EngrSDRequestChk.AutoSize = True
         Me.EngrSDRequestChk.Location = New System.Drawing.Point(6, 24)
         Me.EngrSDRequestChk.Name = "EngrSDRequestChk"
@@ -425,67 +421,11 @@ Partial Class ChangeTilePermision
         Me.SaveManageBtn.UseSelectable = True
         Me.SaveManageBtn.UseVisualStyleBackColor = True
         '
-        'MetroTextButton1
-        '
-        Me.MetroTextButton1.Image = Nothing
-        Me.MetroTextButton1.Location = New System.Drawing.Point(407, 34)
-        Me.MetroTextButton1.Name = "MetroTextButton1"
-        Me.MetroTextButton1.Size = New System.Drawing.Size(55, 23)
-        Me.MetroTextButton1.TabIndex = 2
-        Me.MetroTextButton1.Text = "&Save"
-        Me.MetroTextButton1.UseSelectable = True
-        Me.MetroTextButton1.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(30, 23)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 3
-        Me.CheckBox1.Text = "CheckBox1"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(117, 23)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox2.TabIndex = 4
-        Me.CheckBox2.Text = "CheckBox2"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(204, 23)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox3.TabIndex = 5
-        Me.CheckBox3.Text = "CheckBox3"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(67, 39)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox4.TabIndex = 6
-        Me.CheckBox4.Text = "CheckBox4"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
         'ChangeTilePermision
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(578, 337)
-        Me.Controls.Add(Me.CheckBox4)
-        Me.Controls.Add(Me.CheckBox3)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.MetroTextButton1)
         Me.Controls.Add(Me.SaveManageBtn)
         Me.Controls.Add(Me.GroupBox1)
         Me.MaximizeBox = False
@@ -503,7 +443,6 @@ Partial Class ChangeTilePermision
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -538,9 +477,4 @@ Partial Class ChangeTilePermision
     Friend WithEvents MyListChk As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents AccessoriesChk As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents SaveManageBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
-    Friend WithEvents MetroTextButton1 As MetroFramework.Controls.MetroTextBox.MetroTextButton
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
-    Friend WithEvents CheckBox3 As CheckBox
-    Friend WithEvents CheckBox4 As CheckBox
 End Class

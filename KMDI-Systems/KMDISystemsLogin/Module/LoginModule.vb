@@ -223,6 +223,27 @@ Module LoginModule
         End Try
     End Sub
 
+    Public Sub KMDI_ACCT_ACCESS_TB_DELETE(ByVal TileAccess As String,
+                                          ByVal UserAcctAutonum As String)
+        Try
+            Query = "DELETE FROM [KMDI_ACCT_ACCESS_TB] WHERE
+                                                       [TileAccess] = @TileAccess AND
+                                                       [UserAcctAutonum] = @UserAcctAutonum"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlCommand.Parameters.AddWithValue("@TileAccess", TileAccess)
+            sqlCommand.Parameters.AddWithValue("@UserAcctAutonum", UserAcctAutonum)
+            confirmQuery = sqlCommand.ExecuteNonQuery
+
+            If confirmQuery <> 0 Then
+                MetroFramework.MetroMessageBox.Show(ChangeWritePermision, "Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MetroFramework.MetroMessageBox.Show(ChangeWritePermision, "Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
     Public Sub KMDI_ACCT_ACCESS_TB_INSERT(ByVal ACCTYPE As String,
                                           ByVal TileAccess As String,
                                           ByVal Write As String,
@@ -274,10 +295,13 @@ Module LoginModule
             While Read.Read
                 If Read.HasRows Then
                     tileAccessHere = Read.Item("Tile").ToString
-                    ChangeTilePermision.tileAccess += "|" + tileAccessHere
-                Else
-                    MsgBox("no result")
-                    Exit While
+
+                    If tileAccessHere <> Nothing Then
+                        ChangeTilePermision.tileAccess += "|" + tileAccessHere
+                    Else
+                        ChangeTilePermision.tileAccess = Nothing
+                        Exit While
+                    End If
                 End If
             End While
             Read.Close()
@@ -285,6 +309,5 @@ Module LoginModule
             MessageBox.Show(ex.ToString)
         End Try
     End Sub
-
 
 End Module
