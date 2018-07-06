@@ -84,12 +84,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="KMDISystemsLogin\Forms\ChangeTilePermision.Designer.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeTilePermision.Designer.vb">
       <DependentUpon>ChangeTilePermision.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\Forms\ChangeTilePermision.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeTilePermision.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Module\ManageAccountsModule.vb" />
     <Compile Include="KMDISystemsLogin\Forms\KMDISystemsLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -104,18 +105,19 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="KMDISystemsLogin\Module\LoginModule.vb" />
-    <Compile Include="KMDISystemsLogin\Forms\ManageAccounts.Designer.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ManageAccounts.Designer.vb">
       <DependentUpon>ManageAccounts.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\Forms\ManageAccounts.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ManageAccounts.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KMDISystemsLogin\Forms\ChangeWritePermision.Designer.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeWritePermision.Designer.vb">
       <DependentUpon>ChangeWritePermision.vb</DependentUpon>
     </Compile>
-    <Compile Include="KMDISystemsLogin\Forms\ChangeWritePermision.vb">
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeWritePermision.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Module\KMDISystemsGlobalModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -133,7 +135,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="KMDISystemsLogin\Forms\ChangeTilePermision.resx">
+    <EmbeddedResource Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeTilePermision.resx">
       <DependentUpon>ChangeTilePermision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KMDISystemsLogin\Forms\KMDISystemsLogin.resx">
@@ -142,10 +144,10 @@
     <EmbeddedResource Include="KMDISystemsLogin\Forms\KMDI_MainFRM.resx">
       <DependentUpon>KMDI_MainFRM.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KMDISystemsLogin\Forms\ManageAccounts.resx">
+    <EmbeddedResource Include="KMDISystemsAccount\ManageAccounts\Forms\ManageAccounts.resx">
       <DependentUpon>ManageAccounts.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KMDISystemsLogin\Forms\ChangeWritePermision.resx">
+    <EmbeddedResource Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeWritePermision.resx">
       <DependentUpon>ChangeWritePermision.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -167,6 +169,9 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="KMDISystemsAccount\Module\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

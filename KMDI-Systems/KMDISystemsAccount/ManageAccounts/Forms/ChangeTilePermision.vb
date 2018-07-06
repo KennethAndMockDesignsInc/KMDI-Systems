@@ -2,7 +2,7 @@
     Public tileAccess, AddedAccess, RemovedTileAccess As String
 
     Public indexofTileAccessCodes As Integer
-    Dim containsString As Boolean
+    Dim containsString, TempRemovedTileAccessIDN As Boolean
 
     Dim accounttypehere As String = ManageAccounts.userAccess
 
@@ -10,7 +10,7 @@
      addendum = "|07", SalesItinerary = "|08", SalesMoni = "|09", SUS = "|10", CallerInfo = "|11", Collection = "|12", ExtDMGs = "|13", CheckBalance = "|14", 'Sales and OP
      ProdSDreq = "|15", CuttList = "|16", StatsMoni = "|17", GlassSpecs = "|18", ProdSDSubm = "|19", ' Production
      ArchiFirm = "|20", Inventory = "|21", Request = "|22", 'Marketing
-     Accesories = "|23", myList As String = "|24" ' Costing
+     Accesories = "|23", myList As String = "|24", WinDoor As String = "|25" ' Costing
 
 
     Public Sub CheckCHKBOX()
@@ -75,6 +75,8 @@
                             AccessoriesChk.CheckState = CheckState.Checked
                         Case myList
                             MyListChk.CheckState = CheckState.Checked
+                        Case WinDoor
+                            WinDoorChk.CheckState = CheckState.Checked
                     End Select
                 Next
             End If
@@ -113,9 +115,11 @@
             Case "Costing"
                 MyListChk.CheckState = CheckState.Checked
                 AccessoriesChk.CheckState = CheckState.Checked
+                WinDoorChk.CheckState = CheckState.Checked
 
                 MyListChk.Enabled = False
                 AccessoriesChk.Enabled = False
+                WinDoorChk.Enabled = False
 
             Case "Cutting"
                 ProdSDreq.CheckState = CheckState.Checked
@@ -1129,6 +1133,13 @@
 
     Private Sub MyListChk_Click(sender As Object, e As EventArgs) Handles MyListChk.Click
         If MyListChk.Checked = False Then
+            Dim TempRemoveTileINDEX As Boolean = tileAccess.Contains(myList)
+
+            Select Case TempRemoveTileINDEX
+                Case True
+
+            End Select
+
             RemovedTileAccess += myList
             containsString = AddedAccess.Contains(myList)
             Select Case containsString
@@ -1178,12 +1189,17 @@
         End If
 
         If RemovedTileAccess <> "" Then
+            If tileAccess <> Nothing Then
+                Dim toDELETEtile As String
+                toDELETEtile = RemovedTileAccess.Trim(tileAccess)
 
-            For searchingTileAccess As Integer = 0 To RemovedTileAccess.Length - 1 Step 3
-                Tcode = RemovedTileAccess.Substring(searchingTileAccess + 1, 2)
-                MsgBox(Tcode & vbCrLf & ManageAccounts.UsersAutonum)
-                KMDI_ACCT_ACCESS_TB_DELETE(Tcode, ManageAccounts.UsersAutonum)
-            Next
+                For searchingTileAccess As Integer = 0 To toDELETEtile.Length - 1 Step 3
+                    Tcode = toDELETEtile.Substring(searchingTileAccess + 1, 2)
+                    MsgBox(Tcode & vbCrLf & ManageAccounts.UsersAutonum)
+                    KMDI_ACCT_ACCESS_TB_DELETE(Tcode, ManageAccounts.UsersAutonum)
+                Next
+
+            End If
 
         End If
 

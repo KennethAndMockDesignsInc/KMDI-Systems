@@ -53,6 +53,7 @@ Partial Class ChangeTilePermision
         Me.DeliveryRecieptsChk = New MetroFramework.Controls.MetroCheckBox()
         Me.EngrSDRequestChk = New MetroFramework.Controls.MetroCheckBox()
         Me.SaveManageBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
+        Me.WinDoorChk = New MetroFramework.Controls.MetroCheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -78,6 +79,7 @@ Partial Class ChangeTilePermision
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.WinDoorChk)
         Me.GroupBox6.Controls.Add(Me.MyListChk)
         Me.GroupBox6.Controls.Add(Me.AccessoriesChk)
         Me.GroupBox6.Location = New System.Drawing.Point(399, 130)
@@ -421,6 +423,17 @@ Partial Class ChangeTilePermision
         Me.SaveManageBtn.UseSelectable = True
         Me.SaveManageBtn.UseVisualStyleBackColor = True
         '
+        'WinDoorChk
+        '
+        Me.WinDoorChk.AutoSize = True
+        Me.WinDoorChk.Location = New System.Drawing.Point(6, 76)
+        Me.WinDoorChk.Name = "WinDoorChk"
+        Me.WinDoorChk.Size = New System.Drawing.Size(106, 15)
+        Me.WinDoorChk.Style = MetroFramework.MetroColorStyle.Blue
+        Me.WinDoorChk.TabIndex = 3
+        Me.WinDoorChk.Text = "WinDoor Maker"
+        Me.WinDoorChk.UseSelectable = True
+        '
         'ChangeTilePermision
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -477,4 +490,5 @@ Partial Class ChangeTilePermision
     Friend WithEvents MyListChk As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents AccessoriesChk As MetroFramework.Controls.MetroCheckBox
     Friend WithEvents SaveManageBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents WinDoorChk As MetroFramework.Controls.MetroCheckBox
 End Class
