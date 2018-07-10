@@ -3,8 +3,7 @@
     Public userAccess As String
 
     Private Sub ManageAccounts_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        KMDI_ACCT_TB_READ(AccountAutonum)
-        KMDI_ACCT_TB_READ_MAXAutonum()
+        KMDI_ACCT_TB_READ()
         UserAccessCbox_Popolate()
         MaximizeBox = False
     End Sub
@@ -14,8 +13,8 @@
     End Sub
 
     Private Sub ManageAccounts_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        KMDI_MainFRM.Enabled = True
         Me.Dispose()
+        KMDI_MainFRM.Enabled = True
     End Sub
 
     Private Sub UserAccessCbox_Enter(sender As Object, e As EventArgs) Handles UserAccessCbox.Enter
@@ -28,16 +27,14 @@
     End Sub
 
     Private Sub UserAcctDGV_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles UserAcctDGV.CellMouseClick
-        If (e.RowIndex >= 0 And e.ColumnIndex >= 0) Then
-            If e.Button = MouseButtons.Right Then
-                UserAcctDGV.Rows(e.RowIndex).Selected = True
-                Dim r As New Rectangle
-                r = UserAcctDGV.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, True)
-                PermisionMenu.Show()
-                PermisionMenu.Location = New Point(MousePosition.X, MousePosition.Y)
-            ElseIf e.Button = MouseButtons.Left Then
+        If (e.RowIndex >= 0 And e.ColumnIndex >= 0 And e.Button = MouseButtons.Right) Then
 
-            End If
+            UserAcctDGV.Rows(e.RowIndex).Selected = True
+            Dim r As New Rectangle
+            r = UserAcctDGV.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, True)
+            PermisionMenu.Show()
+
+            PermisionMenu.Location = New Point(MousePosition.X, MousePosition.Y)
 
             If UserAcctDGV.RowCount >= 0 And e.RowIndex >= 0 Then
 
@@ -62,23 +59,4 @@
         Me.Enabled = False
     End Sub
 
-    Private Sub AddUserBtn_Click(sender As Object, e As EventArgs) Handles AddUserBtn.Click
-        KMDI_ACCT_TB_INSERT_ManageAccounts(FullnameTbox.Text,
-                                           NicknameTbox.Text,
-                                           UserAccessCbox.Text,
-                                           AUTONUMforuserNpass,
-                                           Encrypt(AUTONUMforuserNpass))
-    End Sub
-
-    Private Sub UpdateUserBtn_Click(sender As Object, e As EventArgs) Handles UpdateUserBtn.Click
-        KMDI_ACCT_TB_UPDATE_ManageAccounts(FullnameTbox.Text,
-                                           NicknameTbox.Text,
-                                           UserAccessCbox.Text,
-                                           UsersAutonum)
-    End Sub
-
-    Private Sub AcctTypeUpdate_Click(sender As Object, e As EventArgs) Handles AcctTypeUpdate.Click
-        UpdateAcctType.Show()
-        Me.Enabled = False
-    End Sub
 End Class

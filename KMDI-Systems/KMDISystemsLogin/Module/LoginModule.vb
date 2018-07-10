@@ -19,7 +19,7 @@ Module LoginModule
     Public sqlBindingSource As BindingSource
     Public Query As String
 
-    Public nickname As String
+
 
     Public Sub KMDISystems_Login(ByVal UserName As String,
                                  ByVal Password As String)
@@ -33,7 +33,7 @@ Module LoginModule
                 Exit Sub
             End Try
 
-            Query = "Select [ACCTTYPE], [AUTONUM], [NICKNAME]
+            Query = "Select [ACCTTYPE]
                      From KMDI_ACCT_TB
                      Where [username] = @UserName AND [password] COLLATE Latin1_General_CS_AS = @Password"
             sqlCommand = New SqlCommand(Query, sqlConnection)
@@ -42,9 +42,7 @@ Module LoginModule
             Read = sqlCommand.ExecuteReader
             Read.Read()
             If Read.HasRows Then
-                AccountAutonum = Read.Item("AUTONUM").ToString
                 AccountType = Read.Item("ACCTTYPE").ToString
-                nickname = Read.Item("NICKNAME").ToString
                 If Read("ACCTTYPE").ToString() = "Admin" Then
                     With KMDI_MainFRM
                         .Show()
@@ -68,8 +66,6 @@ Module LoginModule
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-        Finally
-            sqlConnection.Close()
         End Try
     End Sub
 
@@ -107,6 +103,41 @@ Module LoginModule
 
     End Function
 
+    Public Sub KMDI_ACCT_TB_READ()
+        Dim sqlDataAdapter As New SqlDataAdapter
+        Dim sqlDataSet As New DataSet
+        Dim sqlBindingSource As New BindingSource
+
+
+        Try
+            sqlConnection.Close()
+            sqlConnection.Open()
+
+            sqlDataSet.Clear()
+            Query = "SELECT [AUTONUM],
+                            [FULLNAME],
+                            [NICKNAME],
+                            [ACCTTYPE]
+                     FROM [KMDI_ACCT_TB]"
+            sqlCommand = New SqlCommand(Query, sqlConnection)
+            sqlDataAdapter.SelectCommand = sqlCommand
+            sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_TB")
+            sqlBindingSource.DataSource = sqlDataSet
+            sqlBindingSource.DataMember = "KMDI_ACCT_TB"
+            ManageAccounts.UserAcctDGV.DataSource = sqlBindingSource
+
+            With ManageAccounts.UserAcctDGV
+                .DefaultCellStyle.BackColor = Color.White
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.WhiteSmoke
+            End With
+
+            ManageAccounts.UserAcctDGV.Columns("AUTONUM").Visible = False
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        End Try
+    End Sub
+
     Public Sub UserAccessCbox_Popolate()
         Try
             Dim sqlDataAdapter As New SqlDataAdapter
@@ -117,21 +148,19 @@ Module LoginModule
             sqlConnection.Open()
 
             sqlDataSet.Clear()
-            Query = "Select Distinct [ACCTYPE] 
-                     FROM [KMDI_ACCT_ACCTYPE]"
+            Query = "Select Distinct [ACCTTYPE] 
+                     FROM [KMDI_ACCT_TB]"
             sqlCommand = New SqlCommand(Query, sqlConnection)
             sqlDataAdapter.SelectCommand = sqlCommand
             sqlDataAdapter.Fill(sqlDataSet, "KMDI_ACCT_TB2")
             sqlBindingSource.DataSource = sqlDataSet
             sqlBindingSource.DataMember = "KMDI_ACCT_TB2"
             ManageAccounts.UserAccessCbox.DataSource = sqlBindingSource
-            ManageAccounts.UserAccessCbox.ValueMember = "ACCTYPE"
+            ManageAccounts.UserAccessCbox.ValueMember = "ACCTTYPE"
             ManageAccounts.UserAccessCbox.SelectedIndex = -1
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
-        Finally
-            sqlConnection.Close()
         End Try
     End Sub
 
