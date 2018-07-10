@@ -6,13 +6,6 @@
 
     Dim accounttypehere As String = ManageAccounts.userAccess
 
-    Dim EngrSDreq = "|01", DelReciepts = "|02", DR = "|03", DrReports = "|04", EngrsItinerary = "|05", EngrSDsubm = "|06", 'Engineering
-     addendum = "|07", SalesItinerary = "|08", SalesMoni = "|09", SUS = "|10", CallerInfo = "|11", Collection = "|12", ExtDMGs = "|13", CheckBalance = "|14", 'Sales and OP
-     ProdSDreq = "|15", CuttList = "|16", StatsMoni = "|17", GlassSpecs = "|18", ProdSDSubm = "|19", ' Production
-     ArchiFirm = "|20", Inventory = "|21", Request = "|22", 'Marketing
-     Accesories = "|23", myList As String = "|24", WinDoor As String = "|25" ' Costing
-
-
     Public Sub CheckCHKBOX()
 
         Try
@@ -122,21 +115,21 @@
                 WinDoorChk.Enabled = False
 
             Case "Cutting"
-                ProdSDreq.CheckState = CheckState.Checked
-                ProdSDSubm.CheckState = CheckState.Checked
+                ProdSDRequestChk.CheckState = CheckState.Checked
+                ProdSDSubmittalChk.CheckState = CheckState.Checked
                 CuttingListChk.CheckState = CheckState.Checked
 
-                ProdSDreq.Enabled = False
-                ProdSDSubm.Enabled = False
+                ProdSDRequestChk.Enabled = False
+                ProdSDSubmittalChk.Enabled = False
                 CuttingListChk.Enabled = False
 
             Case "Delivery"
-                ProdSDreq.CheckState = CheckState.Checked
-                ProdSDSubm.CheckState = CheckState.Checked
+                ProdSDRequestChk.CheckState = CheckState.Checked
+                ProdSDSubmittalChk.CheckState = CheckState.Checked
                 GlassSpecsChk.CheckState = CheckState.Checked
 
-                ProdSDreq.Enabled = False
-                ProdSDSubm.Enabled = False
+                ProdSDRequestChk.Enabled = False
+                ProdSDSubmittalChk.Enabled = False
                 GlassSpecsChk.Enabled = False
 
             Case "Engineering"
@@ -156,22 +149,22 @@
                 DRReportChk.CheckState = CheckState.Checked
                 DeliveryRecieptsChk.CheckState = CheckState.Checked
                 EngrSDRequestChk.CheckState = CheckState.Checked
-                EngrSDsubm.CheckState = CheckState.Checked
+                EngrSDSubmittalChk.CheckState = CheckState.Checked
 
                 DRChk.Enabled = False
                 EngrsItineraryChk.Enabled = False
                 DRReportChk.Enabled = False
                 DeliveryRecieptsChk.Enabled = False
                 EngrSDRequestChk.Enabled = False
-                EngrSDsubm.Enabled = False
+                EngrSDSubmittalChk.Enabled = False
 
             Case "Fabrication"
-                ProdSDreq.CheckState = CheckState.Checked
-                ProdSDSubm.CheckState = CheckState.Checked
+                ProdSDRequestChk.CheckState = CheckState.Checked
+                ProdSDSubmittalChk.CheckState = CheckState.Checked
                 StatusMonitoringChk.CheckState = CheckState.Checked
 
-                ProdSDreq.Enabled = False
-                ProdSDSubm.Enabled = False
+                ProdSDRequestChk.Enabled = False
+                ProdSDSubmittalChk.Enabled = False
                 StatusMonitoringChk.Enabled = False
 
             Case "Marketing"
@@ -258,24 +251,22 @@
     Private Sub ChangeTilePermision_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         AddedAccess = ""
         RemovedTileAccess = ""
-
         KMDI_ACCT_ACCESS_TB_READ_FOR_ChangeTilePermision(ManageAccounts.UsersAutonum)
-        MsgBox("tileAccess: " & tileAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
 
-        MsgBox(accounttypehere)
         LoggedAcctPermissions()
         CheckCHKBOX()
     End Sub
 
     Private Sub ChangeTilePermision_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Me.Dispose()
         ManageAccounts.Enabled = True
+        Me.Dispose()
     End Sub
 
     Private Sub EngrSDRequestChk_Click(sender As Object, e As EventArgs) Handles EngrSDRequestChk.Click
         If EngrSDRequestChk.Checked = False Then
+
             RemovedTileAccess += EngrSDreq
+
             containsTIleCode = AddedAccess.Contains(EngrSDreq)
             Select Case containsTIleCode
                 Case True
@@ -285,7 +276,13 @@
             End Select
 
         Else
-            AddedAccess += EngrSDreq
+            If tileAccess Is Nothing Then
+                AddedAccess += EngrSDreq
+            Else
+                If tileAccess.Contains(EngrSDreq) = False Then
+                    AddedAccess += EngrSDreq
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(EngrSDreq)
             Select Case containsTIleCode
@@ -296,9 +293,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
 
     End Sub
 
@@ -314,8 +308,13 @@
             End Select
 
         Else
-            AddedAccess += DelReciepts
-
+            If tileAccess Is Nothing Then
+                AddedAccess += DelReciepts
+            Else
+                If tileAccess.Contains(DelReciepts) = False Then
+                    AddedAccess += DelReciepts
+                End If
+            End If
             containsTIleCode = RemovedTileAccess.Contains(DelReciepts)
             Select Case containsTIleCode
                 Case True
@@ -325,18 +324,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If DeliveryRecieptsChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(DelReciepts)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += DelReciepts
-        'End If
-
 
     End Sub
 
@@ -352,7 +339,13 @@
             End Select
 
         Else
-            AddedAccess += DR
+            If tileAccess Is Nothing Then
+                AddedAccess += DR
+            Else
+                If tileAccess.Contains(DR) = False Then
+                    AddedAccess += DR
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(DR)
             Select Case containsTIleCode
@@ -363,16 +356,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If DRChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(DR)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += DR
-        'End If
 
 
     End Sub
@@ -389,28 +372,23 @@
             End Select
 
         Else
-            AddedAccess += DrReports
+            If tileAccess Is Nothing Then
+                AddedAccess += DrReports
+            Else
+                If tileAccess.Contains(DrReports) = False Then
+                    AddedAccess += DrReports
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(DrReports)
-            Select Case containsTIleCode
-                Case True
-                    indexofTileAccessCodes = RemovedTileAccess.IndexOf(DrReports)
-                    RemovedTileAccess = RemovedTileAccess.Remove(indexofTileAccessCodes, 3)
+                Select Case containsTIleCode
+                    Case True
+                        indexofTileAccessCodes = RemovedTileAccess.IndexOf(DrReports)
+                        RemovedTileAccess = RemovedTileAccess.Remove(indexofTileAccessCodes, 3)
 
-            End Select
+                End Select
 
-        End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If DRReportChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(DrReports)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += DrReports
-        'End If
-
+            End If
 
     End Sub
 
@@ -426,7 +404,13 @@
             End Select
 
         Else
-            AddedAccess += EngrsItinerary
+            If tileAccess Is Nothing Then
+                AddedAccess += EngrsItinerary
+            Else
+                If tileAccess.Contains(EngrsItinerary) = False Then
+                    AddedAccess += EngrsItinerary
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(EngrsItinerary)
             Select Case containsTIleCode
@@ -437,17 +421,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If EngrsItineraryChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(EngrsItinerary)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += EngrsItinerary
-        'End If
-
 
     End Sub
 
@@ -463,7 +436,13 @@
             End Select
 
         Else
-            AddedAccess += EngrSDsubm
+            If tileAccess Is Nothing Then
+                AddedAccess += EngrSDsubm
+            Else
+                If tileAccess.Contains(EngrSDsubm) = False Then
+                    AddedAccess += EngrSDsubm
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(EngrSDsubm)
             Select Case containsTIleCode
@@ -474,18 +453,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If EngrSDSubmittalChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(EngrSDsubm)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += EngrSDsubm
-        'End If
-
 
     End Sub
 
@@ -501,7 +468,13 @@
             End Select
 
         Else
-            AddedAccess += addendum
+            If tileAccess Is Nothing Then
+                AddedAccess += addendum
+            Else
+                If tileAccess.Contains(addendum) = False Then
+                    AddedAccess += addendum
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(addendum)
             Select Case containsTIleCode
@@ -512,18 +485,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If AddendumChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(addendum)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += addendum
-        'End If
-
 
     End Sub
 
@@ -539,7 +500,13 @@
             End Select
 
         Else
-            AddedAccess += SalesItinerary
+            If tileAccess Is Nothing Then
+                AddedAccess += SalesItinerary
+            Else
+                If tileAccess.Contains(SalesItinerary) = False Then
+                    AddedAccess += SalesItinerary
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(SalesItinerary)
             Select Case containsTIleCode
@@ -550,18 +517,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If SalesITChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(SalesItinerary)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += SalesItinerary
-        'End If
-
 
     End Sub
 
@@ -577,7 +532,13 @@
             End Select
 
         Else
-            AddedAccess += SalesMoni
+            If tileAccess Is Nothing Then
+                AddedAccess += SalesMoni
+            Else
+                If tileAccess.Contains(SalesMoni) = False Then
+                    AddedAccess += SalesMoni
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(SalesMoni)
             Select Case containsTIleCode
@@ -588,18 +549,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If SalesMonitoringChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(SalesMoni)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += SalesMoni
-        'End If
-
 
     End Sub
 
@@ -615,7 +564,13 @@
             End Select
 
         Else
-            AddedAccess += SUS
+            If tileAccess Is Nothing Then
+                AddedAccess += SUS
+            Else
+                If tileAccess.Contains(SUS) = False Then
+                    AddedAccess += SUS
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(SUS)
             Select Case containsTIleCode
@@ -626,19 +581,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-
-        'If SUSChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(SUS)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += SUS
-        'End If
-
 
     End Sub
 
@@ -654,7 +596,13 @@
             End Select
 
         Else
-            AddedAccess += CallerInfo
+            If tileAccess Is Nothing Then
+                AddedAccess += CallerInfo
+            Else
+                If tileAccess.Contains(CallerInfo) = False Then
+                    AddedAccess += CallerInfo
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(CallerInfo)
             Select Case containsTIleCode
@@ -665,18 +613,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If CallerInfoChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(CallerInfo)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += CallerInfo
-        'End If
-
 
     End Sub
 
@@ -692,7 +628,13 @@
             End Select
 
         Else
-            AddedAccess += Collection
+            If tileAccess Is Nothing Then
+                AddedAccess += Collection
+            Else
+                If tileAccess.Contains(Collection) = False Then
+                    AddedAccess += Collection
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(Collection)
             Select Case containsTIleCode
@@ -703,18 +645,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If CollectionChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(Collection)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += Collection
-        'End If
-
 
     End Sub
 
@@ -730,7 +660,13 @@
             End Select
 
         Else
-            AddedAccess += ExtDMGs
+            If tileAccess Is Nothing Then
+                AddedAccess += ExtDMGs
+            Else
+                If tileAccess.Contains(ExtDMGs) = False Then
+                    AddedAccess += ExtDMGs
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(ExtDMGs)
             Select Case containsTIleCode
@@ -741,17 +677,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If ExtDmgsChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(ExtDMGs)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += ExtDMGs
-        'End If
-
 
     End Sub
 
@@ -767,7 +692,13 @@
             End Select
 
         Else
-            AddedAccess += CheckBalance
+            If tileAccess Is Nothing Then
+                AddedAccess += CheckBalance
+            Else
+                If tileAccess.Contains(CheckBalance) = False Then
+                    AddedAccess += CheckBalance
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(CheckBalance)
             Select Case containsTIleCode
@@ -778,18 +709,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If ChkBalanaceCHK.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(CheckBalance)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += CheckBalance
-        'End If
-
 
     End Sub
 
@@ -805,7 +724,13 @@
             End Select
 
         Else
-            AddedAccess += ProdSDreq
+            If tileAccess Is Nothing Then
+                AddedAccess += ProdSDreq
+            Else
+                If tileAccess.Contains(ProdSDreq) = False Then
+                    AddedAccess += ProdSDreq
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(ProdSDreq)
             Select Case containsTIleCode
@@ -816,18 +741,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If ProdSDRequestChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(ProdSDreq)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += ProdSDreq
-        'End If
-
 
     End Sub
 
@@ -843,7 +756,13 @@
             End Select
 
         Else
-            AddedAccess += CuttList
+            If tileAccess Is Nothing Then
+                AddedAccess += CuttList
+            Else
+                If tileAccess.Contains(CuttList) = False Then
+                    AddedAccess += CuttList
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(CuttList)
             Select Case containsTIleCode
@@ -854,17 +773,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If CuttingListChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(CuttList)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += CuttList
-        'End If
-
 
     End Sub
 
@@ -880,7 +788,13 @@
             End Select
 
         Else
-            AddedAccess += StatsMoni
+            If tileAccess Is Nothing Then
+                AddedAccess += StatsMoni
+            Else
+                If tileAccess.Contains(StatsMoni) = False Then
+                    AddedAccess += StatsMoni
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(StatsMoni)
             Select Case containsTIleCode
@@ -891,17 +805,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If StatusMonitoringChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(StatsMoni)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += StatsMoni
-        'End If
-
 
     End Sub
 
@@ -917,7 +820,13 @@
             End Select
 
         Else
-            AddedAccess += GlassSpecs
+            If tileAccess Is Nothing Then
+                AddedAccess += GlassSpecs
+            Else
+                If tileAccess.Contains(GlassSpecs) = False Then
+                    AddedAccess += GlassSpecs
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(GlassSpecs)
             Select Case containsTIleCode
@@ -928,18 +837,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If GlassSpecsChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(GlassSpecs)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += GlassSpecs
-        'End If
-
 
     End Sub
 
@@ -955,7 +852,13 @@
             End Select
 
         Else
-            AddedAccess += ProdSDSubm
+            If tileAccess Is Nothing Then
+                AddedAccess += ProdSDSubm
+            Else
+                If tileAccess.Contains(ProdSDSubm) = False Then
+                    AddedAccess += ProdSDSubm
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(ProdSDSubm)
             Select Case containsTIleCode
@@ -966,18 +869,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If ProdSDSubmittalChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(ProdSDSubm)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += ProdSDSubm
-        'End If
-
 
     End Sub
 
@@ -993,7 +884,13 @@
             End Select
 
         Else
-            AddedAccess += ArchiFirm
+            If tileAccess Is Nothing Then
+                AddedAccess += ArchiFirm
+            Else
+                If tileAccess.Contains(ArchiFirm) = False Then
+                    AddedAccess += ArchiFirm
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(ArchiFirm)
             Select Case containsTIleCode
@@ -1004,18 +901,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If ArchFirmChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(ArchiFirm)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += ArchiFirm
-        'End If
-
 
     End Sub
 
@@ -1031,7 +916,13 @@
             End Select
 
         Else
-            AddedAccess += Inventory
+            If tileAccess Is Nothing Then
+                AddedAccess += Inventory
+            Else
+                If tileAccess.Contains(Inventory) = False Then
+                    AddedAccess += Inventory
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(Inventory)
             Select Case containsTIleCode
@@ -1042,18 +933,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If InventoryChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(Inventory)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += Inventory
-        'End If
-
 
     End Sub
 
@@ -1069,7 +948,13 @@
             End Select
 
         Else
-            AddedAccess += Request
+            If tileAccess Is Nothing Then
+                AddedAccess += Request
+            Else
+                If tileAccess.Contains(Request) = False Then
+                    AddedAccess += Request
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(Request)
             Select Case containsTIleCode
@@ -1080,17 +965,6 @@
             End Select
 
         End If
-
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If RequestChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(Request)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += Request
-        'End If
-
 
     End Sub
 
@@ -1106,7 +980,13 @@
             End Select
 
         Else
-            AddedAccess += Accesories
+            If tileAccess Is Nothing Then
+                AddedAccess += Accesories
+            Else
+                If tileAccess.Contains(Accesories) = False Then
+                    AddedAccess += Accesories
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(Accesories)
             Select Case containsTIleCode
@@ -1118,27 +998,10 @@
 
         End If
 
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-        'If AccessoriesChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(Accesories)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += Accesories
-        'End If
-
-
     End Sub
 
     Private Sub MyListChk_Click(sender As Object, e As EventArgs) Handles MyListChk.Click
         If MyListChk.Checked = False Then
-            Dim TempRemoveTileINDEX As Boolean = tileAccess.Contains(myList)
-
-            Select Case TempRemoveTileINDEX
-                Case True
-
-            End Select
 
             RemovedTileAccess += myList
             containsTIleCode = AddedAccess.Contains(myList)
@@ -1150,7 +1013,13 @@
             End Select
 
         Else
-            AddedAccess += myList
+            If tileAccess Is Nothing Then
+                AddedAccess += myList
+            Else
+                If tileAccess.Contains(myList) = False Then
+                    AddedAccess += myList
+                End If
+            End If
 
             containsTIleCode = RemovedTileAccess.Contains(myList)
             Select Case containsTIleCode
@@ -1162,28 +1031,17 @@
 
         End If
 
-        MsgBox("AddedAccess: " & AddedAccess)
-        MsgBox("RemovedTileAccess: " & RemovedTileAccess)
-
-
-        'If MyListChk.Checked = False Then
-        '    indexofTileAccessCodes = tileAccess.IndexOf(myList)
-        '    tileAccess = tileAccess.Remove(indexofTileAccessCodes, 3)
-        'Else
-        '    tileAccess += myList
-        'End If
-
-
     End Sub
 
     Private Sub SaveManageBtn_Click(sender As Object, e As EventArgs) Handles SaveManageBtn.Click
         Dim Tcode As String
 
         If AddedAccess <> "" Then
+
             For searchingTileAccess As Integer = 0 To AddedAccess.Length - 1 Step 3
                 Tcode = AddedAccess.Substring(searchingTileAccess + 1, 2)
-                MsgBox(ManageAccounts.userAccess & vbCrLf & Tcode & vbCrLf & ManageAccounts.UsersAutonum)
-                KMDI_ACCT_ACCESS_TB_INSERT(ManageAccounts.userAccess, Tcode, "0", ManageAccounts.UsersAutonum)
+                'MsgBox(ManageAccounts.userAccess & vbCrLf & Tcode & vbCrLf & ManageAccounts.UsersAutonum)
+                KMDI_ACCT_ACCESS_TB_INSERT(ManageAccounts.userAccess, Tcode, "0", ManageAccounts.UsersAutonum, "Inserted by: " & nickname & " " & Date.Now)
             Next
 
         End If
@@ -1191,21 +1049,57 @@
         If RemovedTileAccess <> "" Then
             If tileAccess <> Nothing Then
 
-                Dim toDELETEtile As String
-                toDELETEtile = RemovedTileAccess.Trim(tileAccess)
-
-                For searchingTileAccess As Integer = 0 To toDELETEtile.Length - 1 Step 3
-                    Tcode = toDELETEtile.Substring(searchingTileAccess + 1, 2)
-                    MsgBox(Tcode & vbCrLf & ManageAccounts.UsersAutonum)
-                    KMDI_ACCT_ACCESS_TB_DELETE(Tcode, ManageAccounts.UsersAutonum)
+                For IndexToRemove As Integer = 0 To RemovedTileAccess.Length - 1 Step 3
+                    Dim Temp As String = RemovedTileAccess.Substring(IndexToRemove + 1, 2)
+                    If tileAccess.Contains(Temp) = True Then
+                        'MsgBox(Temp & vbCrLf & ManageAccounts.UsersAutonum)
+                        KMDI_ACCT_ACCESS_TB_DELETE(Temp, ManageAccounts.UsersAutonum)
+                    End If
                 Next
 
             End If
 
         End If
 
-        Me.Dispose()
-        ManageAccounts.Enabled = True
+        If FailedCount <> 0 Then
+            MetroFramework.MetroMessageBox.Show(Me, "Failed", "", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            MetroFramework.MetroMessageBox.Show(Me, "Success", "", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ManageAccounts.Enabled = True
+            Me.Dispose()
+        End If
+    End Sub
+
+    Private Sub WinDoorChk_Click(sender As Object, e As EventArgs) Handles WinDoorChk.Click
+        If WinDoorChk.Checked = False Then
+            RemovedTileAccess += WinDoor
+            containsTIleCode = AddedAccess.Contains(WinDoor)
+            Select Case containsTIleCode
+                Case True
+                    indexofTileAccessCodes = AddedAccess.IndexOf(WinDoor)
+                    AddedAccess = AddedAccess.Remove(indexofTileAccessCodes, 3)
+
+            End Select
+
+        Else
+            If tileAccess Is Nothing Then
+                AddedAccess += WinDoor
+            Else
+                If tileAccess.Contains(WinDoor) = False Then
+                    AddedAccess += WinDoor
+                End If
+            End If
+
+            containsTIleCode = RemovedTileAccess.Contains(WinDoor)
+            Select Case containsTIleCode
+                Case True
+                    indexofTileAccessCodes = RemovedTileAccess.IndexOf(WinDoor)
+                    RemovedTileAccess = RemovedTileAccess.Remove(indexofTileAccessCodes, 3)
+
+            End Select
+
+        End If
+
     End Sub
 
 End Class

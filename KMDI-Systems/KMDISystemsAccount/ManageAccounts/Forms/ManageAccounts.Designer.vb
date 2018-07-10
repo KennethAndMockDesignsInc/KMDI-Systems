@@ -35,6 +35,7 @@ Partial Class ManageAccounts
         Me.TilePermisionMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.WritePermisionMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateUserBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
+        Me.AcctTypeUpdate = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
         CType(Me.UserAcctDGV, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PermisionMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -188,13 +189,9 @@ Partial Class ManageAccounts
         Me.UserAccessCbox.ItemHeight = 23
         Me.UserAccessCbox.Location = New System.Drawing.Point(519, 43)
         Me.UserAccessCbox.Name = "UserAccessCbox"
-        Me.UserAccessCbox.Size = New System.Drawing.Size(174, 29)
-        Me.UserAccessCbox.Style = MetroFramework.MetroColorStyle.Blue
+        Me.UserAccessCbox.Size = New System.Drawing.Size(155, 29)
         Me.UserAccessCbox.TabIndex = 3
-        Me.UserAccessCbox.UseCustomBackColor = True
-        Me.UserAccessCbox.UseCustomForeColor = True
         Me.UserAccessCbox.UseSelectable = True
-        Me.UserAccessCbox.UseStyleColors = True
         '
         'PermisionMenu
         '
@@ -231,11 +228,28 @@ Partial Class ManageAccounts
         Me.UpdateUserBtn.UseStyleColors = True
         Me.UpdateUserBtn.UseVisualStyleBackColor = True
         '
+        'AcctTypeUpdate
+        '
+        Me.AcctTypeUpdate.BackColor = System.Drawing.Color.Black
+        Me.AcctTypeUpdate.ForeColor = System.Drawing.Color.Black
+        Me.AcctTypeUpdate.Image = Nothing
+        Me.AcctTypeUpdate.Location = New System.Drawing.Point(680, 43)
+        Me.AcctTypeUpdate.Name = "AcctTypeUpdate"
+        Me.AcctTypeUpdate.Size = New System.Drawing.Size(13, 29)
+        Me.AcctTypeUpdate.Style = MetroFramework.MetroColorStyle.Teal
+        Me.AcctTypeUpdate.TabIndex = 7
+        Me.AcctTypeUpdate.UseCustomBackColor = True
+        Me.AcctTypeUpdate.UseCustomForeColor = True
+        Me.AcctTypeUpdate.UseSelectable = True
+        Me.AcctTypeUpdate.UseStyleColors = True
+        Me.AcctTypeUpdate.UseVisualStyleBackColor = False
+        '
         'ManageAccounts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(862, 407)
+        Me.Controls.Add(Me.AcctTypeUpdate)
         Me.Controls.Add(Me.UpdateUserBtn)
         Me.Controls.Add(Me.UserAccessCbox)
         Me.Controls.Add(Me.NicknameTbox)
@@ -252,12 +266,13 @@ Partial Class ManageAccounts
     End Sub
 
     Friend WithEvents FullnameTbox As MetroFramework.Controls.MetroTextBox
-    Friend AddUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents AddUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
     Friend WithEvents UserAcctDGV As MetroFramework.Controls.MetroGrid
     Friend WithEvents NicknameTbox As MetroFramework.Controls.MetroTextBox
     Friend WithEvents UserAccessCbox As MetroFramework.Controls.MetroComboBox
     Friend WithEvents PermisionMenu As MetroFramework.Controls.MetroContextMenu
     Friend WithEvents TilePermisionMenu As ToolStripMenuItem
     Friend WithEvents WritePermisionMenu As ToolStripMenuItem
-    Friend UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents UpdateUserBtn As MetroFramework.Controls.MetroTextBox.MetroTextButton
+    Friend WithEvents AcctTypeUpdate As MetroFramework.Controls.MetroTextBox.MetroTextButton
 End Class
