@@ -47,3 +47,4 @@ C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug
 C:\Users\kmdir_7cvud7w\Documents\GitHub\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.KMDI_MainFRM.resources
 C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.ChangeTilePermision.resources
 C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.ChangeWritePermision.resources
+C:\Users\kmdie\Documents\GitHub\KMDI-Systems\KMDI-Systems\KMDI-Systems\obj\Debug\KMDI_Systems.UpdateAcctType.resources

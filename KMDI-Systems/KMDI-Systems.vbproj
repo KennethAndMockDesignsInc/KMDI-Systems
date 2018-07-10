@@ -90,6 +90,12 @@
     <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeTilePermision.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\UpdateAcctType.Designer.vb">
+      <DependentUpon>UpdateAcctType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="KMDISystemsAccount\ManageAccounts\Forms\UpdateAcctType.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KMDISystemsAccount\ManageAccounts\Module\ManageAccountsModule.vb" />
     <Compile Include="KMDISystemsLogin\Forms\KMDISystemsLogin.vb">
       <SubType>Form</SubType>
@@ -137,6 +143,9 @@
   <ItemGroup>
     <EmbeddedResource Include="KMDISystemsAccount\ManageAccounts\Forms\ChangeTilePermision.resx">
       <DependentUpon>ChangeTilePermision.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KMDISystemsAccount\ManageAccounts\Forms\UpdateAcctType.resx">
+      <DependentUpon>UpdateAcctType.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KMDISystemsLogin\Forms\KMDISystemsLogin.resx">
       <DependentUpon>KMDISystemsLogin.vb</DependentUpon>

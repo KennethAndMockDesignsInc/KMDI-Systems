@@ -24,6 +24,7 @@ Partial Class ChangeTilePermision
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.WinDoorChk = New MetroFramework.Controls.MetroCheckBox()
         Me.MyListChk = New MetroFramework.Controls.MetroCheckBox()
         Me.AccessoriesChk = New MetroFramework.Controls.MetroCheckBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -53,7 +54,6 @@ Partial Class ChangeTilePermision
         Me.DeliveryRecieptsChk = New MetroFramework.Controls.MetroCheckBox()
         Me.EngrSDRequestChk = New MetroFramework.Controls.MetroCheckBox()
         Me.SaveManageBtn = New MetroFramework.Controls.MetroTextBox.MetroTextButton()
-        Me.WinDoorChk = New MetroFramework.Controls.MetroCheckBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -88,6 +88,17 @@ Partial Class ChangeTilePermision
         Me.GroupBox6.TabIndex = 5
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Costing"
+        '
+        'WinDoorChk
+        '
+        Me.WinDoorChk.AutoSize = True
+        Me.WinDoorChk.Location = New System.Drawing.Point(6, 76)
+        Me.WinDoorChk.Name = "WinDoorChk"
+        Me.WinDoorChk.Size = New System.Drawing.Size(106, 15)
+        Me.WinDoorChk.Style = MetroFramework.MetroColorStyle.Blue
+        Me.WinDoorChk.TabIndex = 3
+        Me.WinDoorChk.Text = "WinDoor Maker"
+        Me.WinDoorChk.UseSelectable = True
         '
         'MyListChk
         '
@@ -422,17 +433,6 @@ Partial Class ChangeTilePermision
         Me.SaveManageBtn.Text = "&Save"
         Me.SaveManageBtn.UseSelectable = True
         Me.SaveManageBtn.UseVisualStyleBackColor = True
-        '
-        'WinDoorChk
-        '
-        Me.WinDoorChk.AutoSize = True
-        Me.WinDoorChk.Location = New System.Drawing.Point(6, 76)
-        Me.WinDoorChk.Name = "WinDoorChk"
-        Me.WinDoorChk.Size = New System.Drawing.Size(106, 15)
-        Me.WinDoorChk.Style = MetroFramework.MetroColorStyle.Blue
-        Me.WinDoorChk.TabIndex = 3
-        Me.WinDoorChk.Text = "WinDoor Maker"
-        Me.WinDoorChk.UseSelectable = True
         '
         'ChangeTilePermision
         '
